@@ -4,6 +4,8 @@
 
 import urllib2
 import re
+import os
+import _winreg
 
 def getPage(url):
     """Returns the contents of a url as a string.
@@ -88,6 +90,7 @@ def downloadLatest(d, location='downloads\\'):
     \param d The dictionary entry for a package, containing at least a 'name', 
     as well as a 'version', and 'download' dict containing 'url', 'reg', and
     'pos'.
+    \param location The location to download the file to.
     \return the path to the downloaded file.
     """
     name = d['name']
@@ -104,13 +107,66 @@ def downloadLatest(d, location='downloads\\'):
     return newfileloc
 
 def getInstalledVersion(d):
-    return 0
+    """Get the version of the installed package.
 
-def installLatest(d, location='downloads\\'):
-    return 0
+    Use the information specified in the package d to lookup the installed
+    version on the computer. 
+
+    \param d The dictionary entry for a package containing at least a
+    'installversion' dictionary, which itself must contain a 'type' entry.
+    Currently supported types are 'reg' which must have a key, subkey and value
+    entry.
+    \return The version installed or None.
+    """
+    if d['installversion']['querytype'] == 'reg':
+        # should do a lookup table here
+        if d['installversion']['key'] == 'HKLM':
+            tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE,
+                d['installversion']['subkey'])
+            return str(_winreg.QueryValueEx(tempkey,
+                d['installversion']['value'])[0])
+    return None
+
+def installPackage(d, location):
+    """Install the package at location.
+
+    Use the information specified in the package d to run the installer at 
+    location with the correct commandline options.
+
+    \param d The dictionary entry for a package, containing at least a 'name', 
+    as well as a 'version', a 'download' dict containing 'url', 'reg', and
+    'pos' a 'silentflags' entry containing silent command line options for the
+    installer..
+    \param location The location to install from.
+    \return The value returned by the installer
+    """
+    return os.system(location)
+
+def downloadAndInstallLatest(d, location='downloads\\', keep=True):
+    """Download the latest version of the package d and install it.
+
+    Use the information specified in the package d to download the latest
+    version of the package from the web. The default download location is
+    './downloads' and install it.
+
+    \param d The dictionary entry for a package, containing at least a 'name', 
+    as well as a 'version', and 'download' dict containing 'url', 'reg', and
+    'pos'.
+    \param location The location to download the file to.
+    \param keep Should we keep the download?
+    \return The value returned by the installer
+    """
+    fpath = downloadLatest(d, location)
+    ret = installPackage(d, fpath)
+    
+    if not keep and ret == 0:
+        os.remove(fpath)
+    return ret
 
 def uninstall(d):
+    """TODO: XXX: STUB NEEDS FILLED OUT"""
     return 0
 
 def upgrade(d):
+    """TODO: XXX: STUB NEEDS FILLED OUT"""
     return 0
