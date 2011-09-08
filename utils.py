@@ -187,6 +187,78 @@ def downloadLatest(d, location='downloads\\'):
     else:
         return newfileloc
 
+def getInstalledRegkeyVersion(d):
+    """Get the version of the installed package from a registry value.
+
+    Use the information specified in the package d to lookup the installed
+    version on the computer. 
+
+    \param d A installversion dictionary entry for a package containing at
+    least entries for 'key', 'subkey', 'regex', and 'regexpos'
+    \return The version installed or None.
+    """
+    try:
+        # should do a lookup table here
+        if d['key'] == 'HKLM':
+            tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, d['subkey'])
+        else:
+            return None
+        keys = _winreg.QueryInfoKey(tempkey)[0]
+        keynames = sorted([_winreg.EnumKey(tempkey,i) for i in xrange(keys)])
+        keynamesstr = "\n".join(keynames)
+        version = re.findall(d['regex'], keynamesstr)[d['regexpos']]
+        return version
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' %d
+        elif strerror == 'expected string or buffer':
+            print 'your have no value being pulled from the registry'
+        print 'when calling getInstalledRegkeyVersion(%s)' %d
+    except WindowsError:
+        print 'The registry key or value could not be found'
+        print 'when calling getInstalledRegkeyVersion(%s)' %d
+    except KeyError as strerror:
+        print 'd did not contain a "%s" entry' % strerror
+        print 'when calling getInstalledRegkeyVersion(%s)' %d
+    except:
+        print 'unkown error running getInstalledRegkeyVersion(%s)' %d
+    else:
+        return None
+
+def getInstalledRegvalVersion(d):
+    """Get the version of the installed package from a registry value.
+
+    Use the information specified in the package d to lookup the installed
+    version on the computer. 
+
+    \param d A installversion dictionary entry for a package containing at
+    least entries for 'key', 'subkey', 'value', 'regex', and 'regexpos'
+    \return The version installed or None.
+    """
+    try:
+        # should do a lookup table here
+        if d['key'] == 'HKLM':
+            tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, d['subkey'])
+            value = str(_winreg.QueryValueEx(tempkey, d['value'])[0])
+            version = re.findall(d['regex'], value)[d['regexpos']]
+            return version
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' %d
+        elif strerror == 'expected string or buffer':
+            print 'your have no value being pulled from the registry'
+        print 'when calling getInstalledRegvalVersion(%s)' %d
+    except WindowsError:
+        print 'The registry key or value could not be found'
+        print 'when calling getInstalledRegvalVersion(%s)' %d
+    except KeyError as strerror:
+        print 'd did not contain a "%s" entry' % strerror
+        print 'when calling getInstalledRegvalVersion(%s)' %d
+    except:
+        print 'unkown error running getInstalledRegvalVersion(%s)' %d
+    else:
+        return None
+
 def getInstalledVersion(d):
     """Get the version of the installed package.
 
@@ -195,30 +267,19 @@ def getInstalledVersion(d):
 
     \param d The dictionary entry for a package containing at least a
     'installversion' dictionary, which itself must contain a 'type' entry.
-    Currently supported types are 'reg' which must have a key, subkey and value
+    Currently supported types are 'regval' which must have a key, subkey and value
     entry.
     \return The version installed or None.
     """
     try:
-        if d['installversion']['querytype'] == 'reg':
-            # should do a lookup table here
-            if d['installversion']['key'] == 'HKLM':
-                tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE,
-                    d['installversion']['subkey'])
-                value = str(_winreg.QueryValueEx(tempkey,
-                    d['installversion']['value'])[0])
-                version = re.findall(d['installversion']['regex'],
-                    value)[d['installversion']['regexpos']]
-                return version
-    except TypeError as strerror:
-        if strerror == 'first argument must be a string or compiled pattern':
-            print 'you are missing or have an invalid regex in %s' %d
-        elif strerror == 'expected string or buffer':
-            print 'your have no value being pulled from the registry'
-        print 'when calling getInstalledVersion(%s)' %d
-    except WindowsError:
-        print 'The registry key or value could not be found'
-        print 'when calling getInstalledVersion(%s)' %d
+        querytype = d['installversion']['querytype']
+        if querytype == 'regval':
+            return getInstalledRegvalVersion(d['installversion'])
+        elif querytype == 'regkey':
+            return getInstalledRegkeyVersion(d['installversion'])
+        else:
+            print 'unknown querytype: %s' % querytype
+            print 'when calling getInstalledVersion(%s)' %d
     except KeyError as strerror:
         print 'd did not contain a "%s" entry' % strerror
         print 'when calling getInstalledVersion(%s)' %d

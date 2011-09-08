@@ -37,6 +37,28 @@ catalog={
             regexpos:0
             }
         },
+    'Ghostscript':{
+        name:'Ghostscript',
+        category:'Utilities',
+        description:'An interpreter for the PostScript language and for PDF.',
+        url:'http://www.ghostscript.com/',
+        version:{
+            url:'http://www.ghostscript.com/download/',
+            regex:'<li><a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
+            regexpos:0},
+        download:{
+            url:'http://www.ghostscript.com/download/gsdnld.html',
+            regex:'<a href="(http://downloads\.ghostscript\.com/public/gs[0-9]+w32\.exe)">',
+            regexpos:0},
+        silentflags:'/S',
+        installversion:{
+            querytype:'regkey',
+            key:'HKLM',
+            subkey:'SOFTWARE\\GPL Ghostscript',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
+            }
+        },
     '7-Zip':{
         name:'7-Zip',
         category:'Utilities',
@@ -52,7 +74,7 @@ catalog={
             regexpos:0},
         silentflags:'/S',
         installversion:{
-            querytype:'reg',
+            querytype:'regval',
             key:'HKLM',
             subkey:'SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7-Zip',
             value:'DisplayName',
@@ -75,7 +97,7 @@ catalog={
             regexpos:0},
         silentflags:'-ms',
         installversion:{
-            querytype:'reg',
+            querytype:'regval',
             key:'HKLM',
             subkey:'SOFTWARE\\Mozilla\\Mozilla Firefox',
             value:'CurrentVersion',
