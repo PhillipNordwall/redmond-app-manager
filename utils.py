@@ -140,7 +140,7 @@ def installPackage(d, location):
     \param location The location to install from.
     \return The value returned by the installer
     """
-    return os.system(location)
+    return os.system(location + " " + d['silentflags'])
 
 def downloadAndInstallLatest(d, location='downloads\\', keep=True):
     """Download the latest version of the package d and install it.
