@@ -34,28 +34,30 @@ def scrapePage(reg, url, pos=0):
     return re.findall(reg, getPage(url))[pos]
 
 def scrapePageDict(d):
-    """Scrapes the page from d['url'] for the d['reg'] at position d['pos'].
+    """Scrapes the page from d['url'] for the d['regex'] at position 
+    d['regexpos'].
 
-    This will return the d['pos']'th match of the regular expression d['reg']
-    from the page at d['url'].
+    This will return the d['regexpos']'th match of the regular expression
+    d['regex'] from the page at d['url'].
 
-    \param d A dictionary that contains 'reg' The regular expression to match.
+    \param d A dictionary that contains 'regex' The regular expression to match.
     'url' The page to scrape.
-    'pos' Which regulare expression match to return, defaults to 0.
-    \return The pos'th reg match on the page at url.
+    'regexpos' Which regular expression match to return, defaults to 0.
+    \return The regexpos'th reg match on the page at url.
     """
-    return re.findall(d['reg'], getPage(d['url']))[d['pos']]
+    return re.findall(d['regex'], getPage(d['url']))[d['regexpos']]
 
 def getWebVersion(d):
     """Get the version from the web of the catalog entry in d
 
     Use the page at the url specified in d['version']['url'], and the regular
-    expression specified in d['version']['reg'] to find the latest version
-    number of the passed package. The d['version']['pos']'th match of the
+    expression specified in d['version']['regex'] to find the latest version
+    number of the passed package. The d['version']['regexpos']'th match of the
     regular expression is returned.
 
     \param d The dictionary entry for a package, containing at least an entry
-    for 'version' that is a dictionary that contains a 'url', 'reg', and 'pos'
+    for 'version' that is a dictionary that contains a 'url', 'regex', and
+    'regexpos'
     \return the version number matched by the regular expression and page
     passed in.
     """
@@ -65,12 +67,13 @@ def getDownloadURL(d):
     """Get the DownloadURL from the web of the catalog entry in d
 
     Use the page at the url specified in d['download']['url'], and the regular
-    expression specified in d['download']['reg'] to find the download url of
-    the latest version of the passed package. The d['download']['pos']'th match
-    of the regular expression is returned.
+    expression specified in d['download']['regex'] to find the download url of
+    the latest version of the passed package. The d['download']['regexpos']'th
+    match of the regular expression is returned.
 
     \param d The dictionary entry for a package, containing at least an entry
-    for 'download' that is a dictionary that contains a 'url', 'reg' and 'pos'
+    for 'download' that is a dictionary that contains a 'url', 'regex' and
+    'regexpos'
     \return the download url matched by the regular expression and page passed
     in.
     """
@@ -88,8 +91,8 @@ def downloadLatest(d, location='downloads\\'):
     './downloads'
 
     \param d The dictionary entry for a package, containing at least a 'name', 
-    as well as a 'version', and 'download' dict containing 'url', 'reg', and
-    'pos'.
+    as well as a 'version', and 'download' dict containing 'url', 'regex', and
+    'regexpos'.
     \param location The location to download the file to.
     \return the path to the downloaded file.
     """
@@ -123,8 +126,11 @@ def getInstalledVersion(d):
         if d['installversion']['key'] == 'HKLM':
             tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE,
                 d['installversion']['subkey'])
-            return str(_winreg.QueryValueEx(tempkey,
+            value = str(_winreg.QueryValueEx(tempkey,
                 d['installversion']['value'])[0])
+            version = re.findall(d['installversion']['regex'],
+                value)[d['installversion']['regexpos']]
+            return version
     return None
 
 def installPackage(d, location):
@@ -134,9 +140,9 @@ def installPackage(d, location):
     location with the correct commandline options.
 
     \param d The dictionary entry for a package, containing at least a 'name', 
-    as well as a 'version', a 'download' dict containing 'url', 'reg', and
-    'pos' a 'silentflags' entry containing silent command line options for the
-    installer..
+    as well as a 'version', a 'download' dict containing 'url', 'regex', and
+    'regexpos' a 'silentflags' entry containing silent command line options for
+    the installer.
     \param location The location to install from.
     \return The value returned by the installer
     """
@@ -150,8 +156,8 @@ def downloadAndInstallLatest(d, location='downloads\\', keep=True):
     './downloads' and install it.
 
     \param d The dictionary entry for a package, containing at least a 'name', 
-    as well as a 'version', and 'download' dict containing 'url', 'reg', and
-    'pos'.
+    as well as a 'version', and 'download' dict containing 'url', 'regex', and
+    'regexpos'.
     \param location The location to download the file to.
     \param keep Should we keep the download?
     \return The value returned by the installer
