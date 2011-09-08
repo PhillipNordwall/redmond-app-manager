@@ -15,10 +15,17 @@ def getPage(url):
     \param url The url to grab a page from.
     \return A string containing the page contents of url.
     """
-    f=urllib2.urlopen(url)
-    page = f.read()
-    f.close()
-    return page
+    try:
+        f=urllib2.urlopen(url)
+        page = f.read()
+        f.close()
+    except urllib2.URLError:
+        print 'Couldn not connect to and read from %s' % url
+    except:
+        print 'unknown error running  getPage(%s)' % url
+        raise
+    else:
+        return page
 
 def scrapePage(reg, url, pos=0):
     """Scrapes the page from url for the reg at position pos.
@@ -31,7 +38,22 @@ def scrapePage(reg, url, pos=0):
     \param pos Which regulare expression match to return, defaults to 0.
     \return The pos'th reg match on the page at url.
     """
-    return re.findall(reg, getPage(url))[pos]
+    try:
+        ret = re.findall(reg, getPage(url))[pos]
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' % reg
+        elif strerror == 'expected string or buffer':
+            print 'your have no page being returned by getPage()'
+        print 'when calling scrapePage(%s, %s, %d)' %(reg, url, pos)
+    except IndexError:
+        print 'regexpos entry larger then the number of results mathing regex '
+        print 'when calling scrapePage(%s, %s, %d)' %(reg, url, pos)
+    except:
+        print 'unknown error running  scrapePage(%s, %s, %d)' % (reg, url, pos)
+        raise
+    else:
+        return ret
 
 def scrapePageDict(d):
     """Scrapes the page from d['url'] for the d['regex'] at position 
@@ -45,7 +67,25 @@ def scrapePageDict(d):
     'regexpos' Which regular expression match to return, defaults to 0.
     \return The regexpos'th reg match on the page at url.
     """
-    return re.findall(d['regex'], getPage(d['url']))[d['regexpos']]
+    try:
+        ret = re.findall(d['regex'], getPage(d['url']))[d['regexpos']]
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' %d
+        elif strerror == 'expected string or buffer':
+            print 'your have no page being returned by getPage()'
+        print 'when calling scrapePageDict(%s)' %d
+    except IndexError:
+        print 'regexpos entry larger then the number of results mathing regex '
+        print 'when calling scrapePageDict(%s)' %d
+    except KeyError as strerror:
+        print 'd did not contain a "%s" entry' % strerror
+        print 'when calling scrapePage(%s)' %d
+    except:
+        print 'unknown error running scrapePage(%s)' % d
+        raise
+    else:
+        return ret
 
 def getWebVersion(d):
     """Get the version from the web of the catalog entry in d
@@ -61,7 +101,16 @@ def getWebVersion(d):
     \return the version number matched by the regular expression and page
     passed in.
     """
-    return scrapePageDict(d['version'])
+    try:
+        ret = scrapePageDict(d['version'])
+    except KeyError:
+        print 'd did not contain a "version" entry'
+        print 'when calling getWebVersion(%s)' %d
+    except:
+        print 'unknown error running getWebVersion(%s)' % d
+        raise
+    else:
+        return ret
 
 def getDownloadURL(d):
     """Get the DownloadURL from the web of the catalog entry in d
@@ -77,11 +126,22 @@ def getDownloadURL(d):
     \return the download url matched by the regular expression and page passed
     in.
     """
-    downurl = scrapePageDict(d['download'])
-    fredirectedurl = urllib2.urlopen(downurl)
-    redirectedurl = fredirectedurl .geturl()
-    fredirectedurl .close()
-    return redirectedurl
+    try:
+        downurl = scrapePageDict(d['download'])
+        fredirectedurl = urllib2.urlopen(downurl)
+        redirectedurl = fredirectedurl.geturl()
+        fredirectedurl .close()
+    except urllib2.URLError:
+        print 'could not connect to %s' %d['download']['url']
+        print 'when calling getDownloadURL(%s)' %d
+    except KeyError:
+        print 'd did not contain a "download" entry'
+        print 'when calling getDownloadURL(%s)' %d
+    except:
+        print 'unknown error running getDownloadURL(%s)' % d
+        raise
+    else:
+        return redirectedurl
 
 def downloadLatest(d, location='downloads\\'):
     """Download the latest version of the package d.
@@ -96,18 +156,36 @@ def downloadLatest(d, location='downloads\\'):
     \param location The location to download the file to.
     \return the path to the downloaded file.
     """
-    name = d['name']
-    version = getWebVersion(d)
-    furl = urllib2.urlopen(getDownloadURL(d))
-    filecontents = furl.read()
-    furl.close()
-    parsed=urllib2.urlparse.urlparse(furl.geturl())
-    pathname = urllib2.url2pathname(parsed.path)
-    filename = pathname.split("\\")[-1]
-    newfileloc = location + name + '---' + version + '---' + filename
-    with open(newfileloc, "wb") as f:
-        f.write(filecontents)
-    return newfileloc
+    try:
+        name = d['name']
+        version = getWebVersion(d)
+        downurl = getDownloadURL(d)
+        furl = urllib2.urlopen(downurl)
+        filecontents = furl.read()
+        furl.close()
+        parsed=urllib2.urlparse.urlparse(furl.geturl())
+        pathname = urllib2.url2pathname(parsed.path)
+        filename = pathname.split("\\")[-1]
+        newfileloc = location + name + '---' + version + '---' + filename
+        with open(newfileloc, "wb") as f:
+            f.write(filecontents)
+    except IOError as (errno, strerror):
+        print 'could not open file, I/O error({0}): {1}'.format(errno, strerror)
+        print 'when calling downloadLatest(%s, %s)' %(d, location)
+    except TypeError as strerror:
+        print "TypeError: %s, location may not be a string" % strerror
+        print 'when calling downloadLatest(%s, %s)' %(d, location)
+    except urllib2.URLError:
+        print 'could not connet to and read from %s' % downurl
+        print 'when calling downloadLatest(%s, %s)' %(d, location)
+    except KeyError:
+        print 'd did not contain a "name" entry'
+        print 'when calling downloadLatest(%s, %s)' %(d, location)
+    except:
+        print 'unknown error running downloadLatest(%s, %s)' %(d, location)
+        raise
+    else:
+        return newfileloc
 
 def getInstalledVersion(d):
     """Get the version of the installed package.
@@ -121,17 +199,33 @@ def getInstalledVersion(d):
     entry.
     \return The version installed or None.
     """
-    if d['installversion']['querytype'] == 'reg':
-        # should do a lookup table here
-        if d['installversion']['key'] == 'HKLM':
-            tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE,
-                d['installversion']['subkey'])
-            value = str(_winreg.QueryValueEx(tempkey,
-                d['installversion']['value'])[0])
-            version = re.findall(d['installversion']['regex'],
-                value)[d['installversion']['regexpos']]
-            return version
-    return None
+    try:
+        if d['installversion']['querytype'] == 'reg':
+            # should do a lookup table here
+            if d['installversion']['key'] == 'HKLM':
+                tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE,
+                    d['installversion']['subkey'])
+                value = str(_winreg.QueryValueEx(tempkey,
+                    d['installversion']['value'])[0])
+                version = re.findall(d['installversion']['regex'],
+                    value)[d['installversion']['regexpos']]
+                return version
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' %d
+        elif strerror == 'expected string or buffer':
+            print 'your have no value being pulled from the registry'
+        print 'when calling getInstalledVersion(%s)' %d
+    except WindowsError:
+        print 'The registry key or value could not be found'
+        print 'when calling getInstalledVersion(%s)' %d
+    except KeyError as strerror:
+        print 'd did not contain a "%s" entry' % strerror
+        print 'when calling getInstalledVersion(%s)' %d
+    except:
+        print 'unkown error running getInstalledVersion(%s)' %d
+    else:
+        return None
 
 def installPackage(d, location):
     """Install the package at location.
@@ -146,7 +240,12 @@ def installPackage(d, location):
     \param location The location to install from.
     \return The value returned by the installer
     """
-    return os.system(location + " " + d['silentflags'])
+    try:
+        ret = os.system(location + " " + d['silentflags'])
+    except:
+        print 'unknown error running installPackage(%s, %s)' %(d, location)
+    else:
+        return ret
 
 def downloadAndInstallLatest(d, location='downloads\\', keep=True):
     """Download the latest version of the package d and install it.
@@ -162,12 +261,20 @@ def downloadAndInstallLatest(d, location='downloads\\', keep=True):
     \param keep Should we keep the download?
     \return The value returned by the installer
     """
-    fpath = downloadLatest(d, location)
-    ret = installPackage(d, fpath)
-    
-    if not keep and ret == 0:
-        os.remove(fpath)
-    return ret
+    try:
+        fpath = downloadLatest(d, location)
+        ret = installPackage(d, fpath)
+        
+        if not keep and ret == 0:
+            os.remove(fpath)
+    except WindowsError as (errno, strerror):
+        print 'could not remove the file, WindowsError({0}): {1}'.format(errno,
+            strerror)
+        print 'when calling installPackage(%s, %s)' %(d, location)
+    except:
+        print 'unknown error running installPackage(%s, %s)' %(d, location)
+    else:
+        return ret
 
 def uninstall(d):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
