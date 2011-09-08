@@ -165,8 +165,25 @@ def downloadAndInstallLatest(d, location='downloads\\', keep=True):
 
 def uninstall(d):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
+    raise Exception("This is a stub")
     return 0
 
 def upgrade(d):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
+    raise Exception("This is a stub")
+    return 0
+
+def installAll(catalog, collection):
+    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    raise Exception("This is a stub")
+    return 0
+
+def getAllInstalledVersions(catalog, collection):
+    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    raise Exception("This is a stub")
+    return 0
+
+def getAllWebVersions(catalog, collection):
+    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    raise Exception("This is a stub")
     return 0
