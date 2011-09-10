@@ -6,6 +6,7 @@ import urllib2
 import re
 import os
 import _winreg
+import copy
 
 def getPage(url):
     """Returns the contents of a url as a string.
@@ -127,7 +128,8 @@ def getDownloadURL(d):
     in.
     """
     try:
-        downurl = scrapePageDict(d['download'])
+        expandedVersion=expandVersion(d)
+        downurl = scrapePageDict(expandedVersion['download'])
         fredirectedurl = urllib2.urlopen(downurl)
         redirectedurl = fredirectedurl.geturl()
         fredirectedurl .close()
@@ -336,6 +338,32 @@ def downloadAndInstallLatest(d, location='downloads\\', keep=True):
         print 'unknown error running installPackage(%s, %s)' %(d, location)
     else:
         return ret
+
+def expandVersion(d):
+    """Expand version numbers in download url.
+
+    If the 'download' section of d contains a 'url' section that has a
+    ##VERSION##, or a ##DOTLESSVERSION##, lookup the latest webversion and
+    replace the placeholder with the appropriate text.
+
+    \param d The dictionary entry for a package, containing a valid 'version'
+    section and a 'download' section with atleast a 'url' section.
+    \return The dictionary with the placeholder if present replaced by the
+    version or formatted version.
+    
+    \TODO: XXX: exception handling
+    """
+    url = d['download']['url']
+    if '##VERSION##' in url or '##DOTLESSVERSION' in url:
+        ret = copy.deepcopy(d)
+        version = getWebVersion(d)
+        dotlessversion = re.sub('\.', '', version)
+        url = re.sub('##VERSION##', version, url)
+        url = re.sub('##DOTLESSVERSION##', dotlessversion, url)
+        ret['download']['url'] = url
+        return ret
+    else:
+        return d
 
 def uninstall(d):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
