@@ -27,12 +27,35 @@ catalog={
             url:'',
             regex:'',
             regexpos:0},
-        silentflags:'',
+        silentflags:'/S',
         installversion:{
             querytype:'',
-            key:'',
-            subkey:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
             value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ImageMagick':{
+        name:'ImageMagick',
+        category:'Multimedia',
+        description:'A software suite to create, edit, compose, or convert bitmap images.',
+        url:'http://www.imagemagick.org',
+        version:{
+            url:'http://www.imagemagick.org/www/binary-releases.html',
+            regex:'<a href= "http://www\.imagemagick\.org/download/binaries/ImageMagick-([0-9]+(?:\.[0-9]+)+-[0-9]+)-Q16-windows-dll\.exe">',
+            regexpos:0},
+        download:{
+            url:'http://www.imagemagick.org/www/binary-releases.html',
+            regex:'<a href= "(http://www\.imagemagick\.org/download/binaries/ImageMagick-[0-9]+(?:\.[0-9]+)+-[0-9]+-Q16-windows-dll\.exe)">',
+            regexpos:0},
+        silentflags:'/VERYSILENT',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\ImageMagick\\Current',
+            value:'Version',
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
