@@ -227,11 +227,50 @@ def getInstalledRegkeyVersion(d):
     else:
         return None
 
+def getInstalledRegvalnameVersion(d):
+    """Get the version of the installed package from a registry value.
+
+    Use the information specified in the package d to lookup the installed
+    version on the computer.
+
+    \param d A installversion dictionary entry for a package containing at
+    least entries for 'key', 'subkey', 'regex', and 'regexpos'
+    \return The version installed or None.
+    """
+    try:
+        # should do a lookup table here
+        if d['key'] == 'HKLM':
+            tempkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, d['subkey'])
+        else:
+            return None
+        vals = _winreg.QueryInfoKey(tempkey)[1]
+        valnames = [_winreg.EnumValue(tempkey,i)[0] for i in xrange(vals)]
+        valnames = sorted(valnames)
+        valnamesstr = "\n".join(valnames)
+        version = re.findall(d['regex'], valnamesstr)[d['regexpos']]
+        return version
+    except TypeError as strerror:
+        if strerror == 'first argument must be a string or compiled pattern':
+            print 'you are missing or have an invalid regex in %s' %d
+        elif strerror == 'expected string or buffer':
+            print 'your have no value being pulled from the registry'
+        print 'when calling getInstalledRegvalnameVersion(%s)' %d
+    except WindowsError:
+        print 'The registry key or value could not be found'
+        print 'when calling getInstalledRegvalnameVersion(%s)' %d
+    except KeyError as strerror:
+        print 'd did not contain a "%s" entry' % strerror
+        print 'when calling getInstalledRegvalnameVersion(%s)' %d
+    except:
+        print 'unkown error running getInstalledRegvalnameVersion(%s)' %d
+    else:
+        return None
+
 def getInstalledRegvalVersion(d):
     """Get the version of the installed package from a registry value.
 
     Use the information specified in the package d to lookup the installed
-    version on the computer. 
+    version on the computer.
 
     \param d A installversion dictionary entry for a package containing at
     least entries for 'key', 'subkey', 'value', 'regex', and 'regexpos'
@@ -269,14 +308,19 @@ def getInstalledVersion(d):
 
     \param d The dictionary entry for a package containing at least a
     'installversion' dictionary, which itself must contain a 'type' entry.
-    Currently supported types are 'regval' which must have a key, subkey and value
-    entry.
+    Currently supported types are 'regval' which must have a key, subkey,
+    regex, regexpos, and value entry. 'regkey' which must have a key, subkey,
+    regex, and regexpos entry. 'regvalname' which must have a key, subkey,
+    regex, and regexpos entry.
+
     \return The version installed or None.
     """
     try:
         querytype = d['installversion']['querytype']
         if querytype == 'regval':
             return getInstalledRegvalVersion(d['installversion'])
+        elif querytype == 'regvalname':
+            return getInstalledRegvalnameVersion(d['installversion'])
         elif querytype == 'regkey':
             return getInstalledRegkeyVersion(d['installversion'])
         else:
