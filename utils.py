@@ -302,7 +302,7 @@ def installPackage(d, location):
     \return The value returned by the installer
     """
     try:
-        ret = os.system(location + " " + d['silentflags'])
+        ret = os.system('"' + location + '" ' + d['silentflags'])
     except:
         print 'unknown error running installPackage(%s, %s)' %(d, location)
     else:
