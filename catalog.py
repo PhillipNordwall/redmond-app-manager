@@ -37,6 +37,28 @@ catalog={
             regexpos:0
             }
         },
+    'GSview 32bit':{
+        name:'GSView 32bit',
+        category:'Utilities',
+        description:'GSview is a graphical interface for Ghostscript',
+        url:'http://pages.cs.wisc.edu/~ghost/gsview/index.htm',
+        version:{
+            url:'http://pages.cs.wisc.edu/~ghost/gsview/index.htm',
+            regex:'>Obtaining GSview ([0-9]+(?:\.[0-9]+)+)<',
+            regexpos:0},
+        download:{
+            url:'http://pages.cs.wisc.edu/~ghost/gsview/get##DOTLESSVERSION##.htm',
+            regex:'<a href="(http://mirror\.cs\.wisc\.edu/pub/mirrors/ghost/ghostgum/gsv[0-9]+w32\.exe)">',
+            regexpos:0},
+        silentflags:'/auto',
+        installversion:{
+            querytype:'regvalname',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Ghostgum\\GSView',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
+            }
+        },
     'Ghostscript':{
         name:'Ghostscript',
         category:'Utilities',
