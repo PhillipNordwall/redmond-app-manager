@@ -37,6 +37,29 @@ catalog={
             regexpos:0
             }
         },
+    'TrueCrypt':{
+        name:'TrueCrypt',
+        category:'Encryption',
+        description:'Virtual disk encryption',
+        url:'http://www.truecrypt.org/',
+        version:{
+            url:'http://www.truecrypt.org/downloads',
+            regex:'Latest Stable Version - ([0-9]+(?:\.[0-9]+)+[a-zA-Z]?)',
+            regexpos:0},
+        download:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TrueCrypt',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+[a-zA-Z]?)',
+            regexpos:0
+            }
+        },
     'ImageMagick':{
         name:'ImageMagick',
         category:'Multimedia',
