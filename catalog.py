@@ -13,6 +13,10 @@ subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
 
+minimal_list = ['Ghostscript', 'GSview 32bit', 'ImageMagick',
+    '7-Zip', 'Firefox']
+broken_list = [ 'TrueCrypt']
+
 catalog={
     'EMPTY':{
         name:'',
@@ -84,7 +88,7 @@ catalog={
             }
         },
     'GSview 32bit':{
-        name:'GSView 32bit',
+        name:'GSview 32bit',
         category:'Utilities',
         description:'GSview is a graphical interface for Ghostscript',
         url:'http://pages.cs.wisc.edu/~ghost/gsview/index.htm',
@@ -112,7 +116,7 @@ catalog={
         url:'http://www.ghostscript.com/',
         version:{
             url:'http://www.ghostscript.com/download/',
-            regex:'<li><a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
+            regex:'<a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
             regexpos:0},
         download:{
             url:'http://www.ghostscript.com/download/gsdnld.html',
