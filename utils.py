@@ -419,10 +419,25 @@ def upgrade(d):
     raise Exception("This is a stub")
     return 0
 
-def installAll(catalog, collection):
-    """TODO: XXX: STUB NEEDS FILLED OUT"""
-    raise Exception("This is a stub")
-    return 0
+def installColl(catalog, collection, location='downloads\\', keep=True):
+    """Download and install all of the applications in the collection.
+
+    Run downloadAndInstallLatest for each catalog entry whose key is in the
+    collection.
+
+    \param catalog The catalog of install information.
+    \param collection A collection of strings that are keys in catalog. Each
+    \param location The path to store the downloaded files.
+    \param keep Whether the downloads should be kept.
+    catalog entry matching a string in collection gets downloaded and
+    installed.
+    """
+    try:
+        for entry in collection:
+            downloadAndInstallLatest(catalog[entry], location, keep)
+    except:
+        print 'unknown error running installColl(%s, %s)' %(catalog,
+                collection)
 
 def getAllInstalledVersions(catalog, collection):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
