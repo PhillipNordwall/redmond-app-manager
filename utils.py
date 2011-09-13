@@ -439,12 +439,12 @@ def installColl(catalog, collection, location='downloads\\', keep=True):
         print 'unknown error running installColl(%s, %s)' %(catalog,
                 collection)
 
-def getAllInstalledVersions(catalog, collection):
+def getCollInstalledVersions(catalog, collection):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
 
-def getAllWebVersions(catalog, collection):
+def getCollWebVersions(catalog, collection):
     """TODO: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
