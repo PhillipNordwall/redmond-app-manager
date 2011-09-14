@@ -2,6 +2,8 @@
 @brief Utility functions to help with windows package management.
 
 @author Phillip Nordwall <Phillip.Nordwall@wwu.edu>, <phillip@cs.wwu.edu>
+@copyright {2011 Phillip Nordwall, Western Washington University Computer
+Science Department, http://www.cs.wwu.edu}
 @section LICENSE
 
 Copyright (c) 2011 Phillip Nordwall, Western Washington University Computer
@@ -418,7 +420,7 @@ def expandVersion(d):
     @return The dictionary with the placeholder if present replaced by the
     version or formatted version.
     
-    @TODO: XXX: exception handling
+    @todo: XXX: exception handling
     """
     url = d['download']['url']
     if '##VERSION##' in url or '##DOTLESSVERSION' in url:
@@ -433,12 +435,12 @@ def expandVersion(d):
         return d
 
 def uninstall(d):
-    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
 
 def upgrade(d):
-    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
 
@@ -463,11 +465,11 @@ def installColl(catalog, collection, location='downloads\\', keep=True):
                 collection)
 
 def getCollInstalledVersions(catalog, collection):
-    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
 
 def getCollWebVersions(catalog, collection):
-    """TODO: XXX: STUB NEEDS FILLED OUT"""
+    """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
