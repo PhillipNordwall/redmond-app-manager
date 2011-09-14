@@ -1,5 +1,28 @@
-""" \file utils.py
-\brief Utility functions to help with windows package management.
+""" @file utils.py
+@brief Utility functions to help with windows package management.
+
+@author Phillip Nordwall <Phillip.Nordwall@wwu.edu>, <phillip@cs.wwu.edu>
+@section LICENSE
+
+Copyright (c) 2011 Phillip Nordwall, Western Washington University Computer
+Science Department, http://www.cs.wwu.edu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
 import urllib2
@@ -13,8 +36,8 @@ def getPage(url):
 
     This currently doesn't do anything to handle exceptions.
 
-    \param url The url to grab a page from.
-    \return A string containing the page contents of url.
+    @param url The url to grab a page from.
+    @return A string containing the page contents of url.
     """
     try:
         f=urllib2.urlopen(url)
@@ -34,10 +57,10 @@ def scrapePage(reg, url, pos=0):
     This will return the pos'th match of the regular expression reg from the
     page at url. pos defaults to 0.
 
-    \param reg The regular expression to match.
-    \param url The page to scrape.
-    \param pos Which regulare expression match to return, defaults to 0.
-    \return The pos'th reg match on the page at url.
+    @param reg The regular expression to match.
+    @param url The page to scrape.
+    @param pos Which regulare expression match to return, defaults to 0.
+    @return The pos'th reg match on the page at url.
     """
     try:
         ret = re.findall(reg, getPage(url))[pos]
@@ -63,10 +86,10 @@ def scrapePageDict(d):
     This will return the d['regexpos']'th match of the regular expression
     d['regex'] from the page at d['url'].
 
-    \param d A dictionary that contains 'regex' The regular expression to match.
+    @param d A dictionary that contains 'regex' The regular expression to match.
     'url' The page to scrape.
     'regexpos' Which regular expression match to return, defaults to 0.
-    \return The regexpos'th reg match on the page at url.
+    @return The regexpos'th reg match on the page at url.
     """
     try:
         ret = re.findall(d['regex'], getPage(d['url']))[d['regexpos']]
@@ -96,10 +119,10 @@ def getWebVersion(d):
     number of the passed package. The d['version']['regexpos']'th match of the
     regular expression is returned.
 
-    \param d The dictionary entry for a package, containing at least an entry
+    @param d The dictionary entry for a package, containing at least an entry
     for 'version' that is a dictionary that contains a 'url', 'regex', and
     'regexpos'
-    \return the version number matched by the regular expression and page
+    @return the version number matched by the regular expression and page
     passed in.
     """
     try:
@@ -121,10 +144,10 @@ def getDownloadURL(d):
     the latest version of the passed package. The d['download']['regexpos']'th
     match of the regular expression is returned.
 
-    \param d The dictionary entry for a package, containing at least an entry
+    @param d The dictionary entry for a package, containing at least an entry
     for 'download' that is a dictionary that contains a 'url', 'regex' and
     'regexpos'
-    \return the download url matched by the regular expression and page passed
+    @return the download url matched by the regular expression and page passed
     in.
     """
     try:
@@ -152,11 +175,11 @@ def downloadLatest(d, location='downloads\\'):
     version of the package from the web. The default download location is
     './downloads'
 
-    \param d The dictionary entry for a package, containing at least a 'name', 
+    @param d The dictionary entry for a package, containing at least a 'name', 
     as well as a 'version', and 'download' dict containing 'url', 'regex', and
     'regexpos'.
-    \param location The location to download the file to.
-    \return the path to the downloaded file.
+    @param location The location to download the file to.
+    @return the path to the downloaded file.
     """
     try:
         name = d['name']
@@ -195,9 +218,9 @@ def getInstalledRegkeyVersion(d):
     Use the information specified in the package d to lookup the installed
     version on the computer. 
 
-    \param d A installversion dictionary entry for a package containing at
+    @param d A installversion dictionary entry for a package containing at
     least entries for 'key', 'subkey', 'regex', and 'regexpos'
-    \return The version installed or None.
+    @return The version installed or None.
     """
     try:
         # should do a lookup table here
@@ -233,9 +256,9 @@ def getInstalledRegvalnameVersion(d):
     Use the information specified in the package d to lookup the installed
     version on the computer.
 
-    \param d A installversion dictionary entry for a package containing at
+    @param d A installversion dictionary entry for a package containing at
     least entries for 'key', 'subkey', 'regex', and 'regexpos'
-    \return The version installed or None.
+    @return The version installed or None.
     """
     try:
         # should do a lookup table here
@@ -272,9 +295,9 @@ def getInstalledRegvalVersion(d):
     Use the information specified in the package d to lookup the installed
     version on the computer.
 
-    \param d A installversion dictionary entry for a package containing at
+    @param d A installversion dictionary entry for a package containing at
     least entries for 'key', 'subkey', 'value', 'regex', and 'regexpos'
-    \return The version installed or None.
+    @return The version installed or None.
     """
     try:
         # should do a lookup table here
@@ -306,14 +329,14 @@ def getInstalledVersion(d):
     Use the information specified in the package d to lookup the installed
     version on the computer. 
 
-    \param d The dictionary entry for a package containing at least a
+    @param d The dictionary entry for a package containing at least a
     'installversion' dictionary, which itself must contain a 'type' entry.
     Currently supported types are 'regval' which must have a key, subkey,
     regex, regexpos, and value entry. 'regkey' which must have a key, subkey,
     regex, and regexpos entry. 'regvalname' which must have a key, subkey,
     regex, and regexpos entry.
 
-    \return The version installed or None.
+    @return The version installed or None.
     """
     try:
         querytype = d['installversion']['querytype']
@@ -340,12 +363,12 @@ def installPackage(d, location):
     Use the information specified in the package d to run the installer at 
     location with the correct commandline options.
 
-    \param d The dictionary entry for a package, containing at least a 'name', 
+    @param d The dictionary entry for a package, containing at least a 'name', 
     as well as a 'version', a 'download' dict containing 'url', 'regex', and
     'regexpos' a 'silentflags' entry containing silent command line options for
     the installer.
-    \param location The location to install from.
-    \return The value returned by the installer
+    @param location The location to install from.
+    @return The value returned by the installer
     """
     try:
         ret = os.system('"' + location + '" ' + d['silentflags'])
@@ -361,12 +384,12 @@ def downloadAndInstallLatest(d, location='downloads\\', keep=True):
     version of the package from the web. The default download location is
     './downloads' and install it.
 
-    \param d The dictionary entry for a package, containing at least a 'name', 
+    @param d The dictionary entry for a package, containing at least a 'name', 
     as well as a 'version', and 'download' dict containing 'url', 'regex', and
     'regexpos'.
-    \param location The location to download the file to.
-    \param keep Should we keep the download?
-    \return The value returned by the installer
+    @param location The location to download the file to.
+    @param keep Should we keep the download?
+    @return The value returned by the installer
     """
     try:
         fpath = downloadLatest(d, location)
@@ -390,12 +413,12 @@ def expandVersion(d):
     ##VERSION##, or a ##DOTLESSVERSION##, lookup the latest webversion and
     replace the placeholder with the appropriate text.
 
-    \param d The dictionary entry for a package, containing a valid 'version'
+    @param d The dictionary entry for a package, containing a valid 'version'
     section and a 'download' section with atleast a 'url' section.
-    \return The dictionary with the placeholder if present replaced by the
+    @return The dictionary with the placeholder if present replaced by the
     version or formatted version.
     
-    \TODO: XXX: exception handling
+    @TODO: XXX: exception handling
     """
     url = d['download']['url']
     if '##VERSION##' in url or '##DOTLESSVERSION' in url:
