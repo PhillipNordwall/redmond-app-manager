@@ -5,6 +5,7 @@ url = 'url'
 regex = 'regex'
 version = 'version'
 download = 'download'
+downloadtype = 'downloadtype'
 regexpos = 'regexpos'
 silentflags = 'silentflags'
 installversion = 'installversion'
@@ -12,6 +13,12 @@ key = 'key'
 subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
+
+minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
+    '7-Zip', 'Firefox', 'Scribus' ]
+broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
+broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader' ]
+broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 catalog={
     'EMPTY':{
@@ -27,7 +34,7 @@ catalog={
             url:'',
             regex:'',
             regexpos:0},
-        silentflags:'/S',
+        silentflags:'/verysilent',
         installversion:{
             querytype:'',
             key:'HKLM',
@@ -35,6 +42,98 @@ catalog={
             value:'',
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
+            }
+        },
+    'AdobeReader':{
+        name:'AdobeReader',
+        category:'Editors and Viewers',
+        description:'PDF viewer',
+        url:'http://get.adobe.com/reader/',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'direct', #not implemented yet
+            #enterprise URL can not be shared but may be substituted below
+            url:'http://download\.adobe\.com/pub/adobe/reader/win/##MAJOR##.x/##VERSION##/en_US/AdbeRdr##DOTLESSVERSION##_en_US.exe',
+            },
+        silentflags:'',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Scribus':{
+        name:'Scribus',
+        category:'Editors and Viewers',
+        description:'Opensource Page Layout',
+        url:'http://www.scribus.net/',
+        version:{
+            url:'http://wiki.scribus.net/canvas/Download',
+            regex:'Current stable version is ([0-9]+(?:\.[0-9])+)',
+            regexpos:0},
+        download:{
+            url:'http://wiki.scribus.net/canvas/Download',
+            regex:'http://sourceforge\.net/projects/scribus/files/scribus/[0-9]+(?:\.[0-9]+)+/scribus-[0-9]+(?:\.[0-9]+)+-win32-install.exe/download',
+            regexpos:0},
+        silentflags:'/S',
+        installversion:{
+            querytype:'regkey',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall',
+            regex:'Scribus ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
+            }
+        },
+    'Inkscape':{
+        name:'Inkscape',
+        category:'Multimedia',
+        description:'Opensource Vector Graphics Editor',
+        url:'http://inkscape.org/',
+        version:{
+            url:'http://inkscape.org/download/',
+            regex:'Stable release <b>([0-9]+(?:\.[0-9]+)+)</b>',
+            regexpos:0},
+        download:{
+            url:'http://sourceforge.net/projects/inkscape/files/inkscape/##VERSION##/',
+            regex:'<a href="(http://sourceforge\.net/projects/inkscape/files/inkscape/[0-9]+(?:\.[0-9]+)+/Inkscape-[0-9]+(?:\.[0-9]+)+-[0-9]-win32\.exe/download)" ',
+            regexpos:0},
+        silentflags:'/S',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Inkscape',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Gimp':{
+        name:'Gimp',
+        category:'Multimedia',
+        description:'GNU Image Manipulation Program.',
+        url:'http://www.gimp.org/',
+        version:{
+            url:'http://www.gimp.org/downloads/',
+            regex:'<a href="http://downloads\.sourceforge\.net/gimp-win/gimp-([0-9](?:\.[0-9]+)+)-i686-setup-[0-9]+.exe">',
+            regexpos:0},
+        download:{
+            url:'http://www.gimp.org/downloads/',
+            regex:'<a href="(http://downloads\.sourceforge\.net/gimp-win/gimp-[0-9](?:\.[0-9]+)+-i686-setup-[0-9]+.exe)">',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'regvalsearch', #not yet implemented
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall',
+            value:'DisplayName',
+            regex:'GIMP ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
             }
         },
     'TrueCrypt':{
@@ -84,7 +183,7 @@ catalog={
             }
         },
     'GSview 32bit':{
-        name:'GSView 32bit',
+        name:'GSview 32bit',
         category:'Utilities',
         description:'GSview is a graphical interface for Ghostscript',
         url:'http://pages.cs.wisc.edu/~ghost/gsview/index.htm',
@@ -112,7 +211,7 @@ catalog={
         url:'http://www.ghostscript.com/',
         version:{
             url:'http://www.ghostscript.com/download/',
-            regex:'<li><a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
+            regex:'<a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
             regexpos:0},
         download:{
             url:'http://www.ghostscript.com/download/gsdnld.html',
