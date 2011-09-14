@@ -1,0 +1,22 @@
+h2. Redmond App Manager
+
+This is a third-party application downloader, installer, and updater for windows. 
+
+Its goal is to automate much of the detection of current version on the web as well as version installed, through the use of a package configuration that contains some paths and regular expressions. This makes package maintenance much easier in that one configuration should work for more than one release of a package.
+
+The goals are:
+* give it a list of software and have it download and install the most recent versions of the software without intervention. The initial list of software will be from the "Western Washington Univerisity Computer Science software install list":http://support.cs.wwu.edu/index.php/ApplicationsListNew
+* properly upgrade out of date packages without intervention.
+* work with local network or drive copies of proprietary licensed software.
+* concurrent installs and downloads when the installers allow for it.
+* a GUI for selecting packages to install or upgrade. 
+* the ability to communicate with a server that maintains a list of software for the clients as well as provides a proxy for the downloaded files. 
+
+More ideas are welcome, code more so.
+
+Some helper applications may be written:
+* one that will auto-detect the installer type (NSIS, Installshield, Wise, Inno setup) and provide the silent run flags that they need.
+* a firefox plugin that makes building a catalog entries regular expressions easier.
+
+This is still at a very early stage, I anticipate that the code will be refactored a few times as I add support for extra pieces of software.
+
