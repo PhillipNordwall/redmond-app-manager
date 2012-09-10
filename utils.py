@@ -487,7 +487,7 @@ def getCollWebVersions(catalog, collection):
 
 def main(argv):
     
-    if len(argv==0):
+    if len(argv)==0:
         print "Usage:python utils.py [version|localversion|fetch] {package name}
         return -1
 
