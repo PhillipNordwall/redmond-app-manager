@@ -330,8 +330,8 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
-        }
-    },
+        },
+   
    'Flash-Firefox':{
         name:'Adobe Flash Player (Firefox)',
         category:'Multimedia',

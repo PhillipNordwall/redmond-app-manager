@@ -32,6 +32,8 @@ import re
 import os
 import _winreg
 import copy
+import sys
+import catalog
 
 def getPage(url):
     """Returns the contents of a url as a string.
@@ -194,6 +196,7 @@ def downloadLatest(d, location='downloads\\'):
         name = d['name']
         version = getWebVersion(d)
         downurl = getDownloadURL(d)
+        
         furl = urllib2.urlopen(downurl)
         filecontents = furl.read()
         furl.close()
@@ -480,3 +483,20 @@ def getCollWebVersions(catalog, collection):
     """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
+
+
+def main(argv):
+    
+    if len(argv==0):
+        print "Usage:python utils.py [version|localversion|fetch] {package name}
+        return -1
+
+    if argv[1]=="version":
+        getWebVersion(catalog.catlog[argv[1]])
+    elif argv[1]=="localversion":
+        pass
+    elif argv[1]=="fetch":
+        downloadLatest(catalog.catalog[argv[1]])
+
+if __name__ == "__main__":   
+    main(sys.argv)
