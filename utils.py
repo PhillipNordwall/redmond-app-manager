@@ -141,8 +141,9 @@ def getWebVersion(d):
 def getDownloadURL(d):
     """Get the DownloadURL from the web of the catalog entry in d
 
-    
-    Use the page at the url specified in d['download']['url']. I and the regular
+    Use the download type specified in d['download']['downloadtype']
+    if downloadtype is direct download, download the file stored at d['download']['url'].
+    If the download type is  pagesearch use the url specified in d['download']['url'] and the regular
     expression specified in d['download']['regex'] to find the download url of
     the latest version of the passed package. The d['download']['regexpos']'th
     match of the regular expression is returned.
