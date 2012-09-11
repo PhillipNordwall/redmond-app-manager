@@ -35,6 +35,10 @@ import copy
 import sys
 import catalog
 
+#We emulate Mozilla Firefox on Windows 7 64 bit as our UA
+
+userAgent=[('User-Agent',' Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0')]
+
 def getPage(url):
     """Returns the contents of a url as a string.
 
@@ -44,7 +48,9 @@ def getPage(url):
     @return A string containing the page contents of url.
     """
     try:
-        f=urllib2.urlopen(url)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
+        f=opener.open(url)
         page = f.read()
         f.close()
     except urllib2.URLError:
@@ -164,7 +170,10 @@ def getDownloadURL(d):
         if d['download']['downloadtype']=='pagesearch':
             downurl = scrapePageDict(expandedVersion['download'])
 
-        fredirectedurl = urllib2.urlopen(downurl)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
+        fredirectedurl = opener.open(downurl)
+        
         redirectedurl = fredirectedurl.geturl()
         fredirectedurl .close()
     except urllib2.URLError:
@@ -196,8 +205,11 @@ def downloadLatest(d, location='downloads\\'):
         name = d['name']
         version = getWebVersion(d)
         downurl = getDownloadURL(d)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
         
-        furl = urllib2.urlopen(downurl)
+        furl = opener.open(downurl)
+
         filecontents = furl.read()
         furl.close()
         parsed=urllib2.urlparse.urlparse(furl.geturl())
@@ -486,6 +498,7 @@ def getCollWebVersions(catalog, collection):
 
 
 def main(argv):
+    
     if len(argv)<3:
         print "Usage:python utils.py [version|localversion|fetch] {package name}"
         return -1
