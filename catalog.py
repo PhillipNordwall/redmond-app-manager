@@ -31,6 +31,7 @@ catalog={
             regex:'',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'',
             regex:'',
             regexpos:0},
@@ -54,6 +55,7 @@ catalog={
             regex:'',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             downloadtype:'direct', #not implemented yet
             #enterprise URL can not be shared but may be substituted below
             url:'http://download\.adobe\.com/pub/adobe/reader/win/##MAJOR##.x/##VERSION##/en_US/AdbeRdr##DOTLESSVERSION##_en_US.exe',
@@ -78,6 +80,7 @@ catalog={
             regex:'Current stable version is ([0-9]+(?:\.[0-9])+)',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://wiki.scribus.net/canvas/Download',
             regex:'http://sourceforge\.net/projects/scribus/files/scribus/[0-9]+(?:\.[0-9]+)+/scribus-[0-9]+(?:\.[0-9]+)+-win32-install.exe/download',
             regexpos:0},
@@ -100,6 +103,7 @@ catalog={
             regex:'Stable release <b>([0-9]+(?:\.[0-9]+)+)</b>',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://sourceforge.net/projects/inkscape/files/inkscape/##VERSION##/',
             regex:'<a href="(http://sourceforge\.net/projects/inkscape/files/inkscape/[0-9]+(?:\.[0-9]+)+/Inkscape-[0-9]+(?:\.[0-9]+)+-[0-9]-win32\.exe/download)" ',
             regexpos:0},
@@ -123,6 +127,7 @@ catalog={
             regex:'<a href="http://downloads\.sourceforge\.net/gimp-win/gimp-([0-9](?:\.[0-9]+)+)-i686-setup-[0-9]+.exe">',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://www.gimp.org/downloads/',
             regex:'<a href="(http://downloads\.sourceforge\.net/gimp-win/gimp-[0-9](?:\.[0-9]+)+-i686-setup-[0-9]+.exe)">',
             regexpos:0},
@@ -146,6 +151,7 @@ catalog={
             regex:'Latest Stable Version - ([0-9]+(?:\.[0-9]+)+[a-zA-Z]?)',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'',
             regex:'',
             regexpos:0},
@@ -169,6 +175,7 @@ catalog={
             regex:'<a href= "http://www\.imagemagick\.org/download/binaries/ImageMagick-([0-9]+(?:\.[0-9]+)+-[0-9]+)-Q16-windows-dll\.exe">',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://www.imagemagick.org/www/binary-releases.html',
             regex:'<a href= "(http://www\.imagemagick\.org/download/binaries/ImageMagick-[0-9]+(?:\.[0-9]+)+-[0-9]+-Q16-windows-dll\.exe)">',
             regexpos:0},
@@ -192,6 +199,7 @@ catalog={
             regex:'>Obtaining GSview ([0-9]+(?:\.[0-9]+)+)<',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://pages.cs.wisc.edu/~ghost/gsview/get##DOTLESSVERSION##.htm',
             regex:'<a href="(http://mirror\.cs\.wisc\.edu/pub/mirrors/ghost/ghostgum/gsv[0-9]+w32\.exe)">',
             regexpos:0},
@@ -214,6 +222,7 @@ catalog={
             regex:'<a href="gsdnld.html">Ghostscript ([0-9]+(?:\.[0-9]+)+)</a>',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://www.ghostscript.com/download/gsdnld.html',
             regex:'<a href="(http://downloads\.ghostscript\.com/public/gs[0-9]+w32\.exe)">',
             regexpos:0},
@@ -236,6 +245,7 @@ catalog={
             regex:'<P><B>Download 7-Zip ([0-9]+(?:\.[0-9]+)+) \(',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://7-zip.org',
             regex:'<A href="(.*/sevenzip/7z[0-9]+.exe)',
             regexpos:0},
@@ -259,6 +269,7 @@ catalog={
             regex:'<li><a href="http://download\.mozilla\.org/\?product=firefox-([0-9]+(?:\.[0-9]+)+)&amp;os=win&amp;lang=en-US">Windows</a></li>',
             regexpos:0},
         download:{
+            downloadtype:'pagesearch',
             url:'http://www.mozilla.org/en-US/firefox/new/',
             regex:'<li><a href="(http://download\.mozilla\.org/\?product=firefox-[0-9]+(?:\.[0-9]+)+&amp;os=win&amp;lang=en-US)">Windows</a></li>',
             regexpos:0},
@@ -268,6 +279,77 @@ catalog={
             key:'HKLM',
             subkey:'SOFTWARE\\Mozilla\\Mozilla Firefox',
             value:'CurrentVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+     'Notepad++':{
+        name:'Notepad++',
+        category:'Multimedia',
+        description:'An Editor that knows about \\n',
+        url:'http://notepad-plus-plus.org/',
+        version:{
+            url:'http://notepad-plus-plus.org/download/',
+            regex:'v([0-9]+(?:\.[0-9]+)*)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://notepad-plus-plus.org/download/',
+            regex:'http://download.tuxfamily.org/notepadplus/[0-9]+(?:\.[0-9]+)+/npp.[0-9]+(?:\.[0-9]+)+.Installer.exe',
+            regexpos:0},
+        silentflags:'-ms',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Mozilla\\Mozilla Firefox',
+            value:'CurrentVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'GVim':{
+        name:'GNU Vim',
+        category:'Editors',
+        description:'Vi Improved Editing Environment',
+        url:'http://www.vim.org',
+        version:{
+            url:'http://www.vim.org/download.php',
+            regex:'"Vim (7.3) is the latest stable version"',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.vim.org/download.php',
+            regex:'(ftp://ftp.vim.org/pub/vim/pc/gvim[0-9]+_[0-9]+.exe)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+   
+   'Flash-Firefox':{
+        name:'Adobe Flash Player (Firefox)',
+        category:'Multimedia',
+        description:'Web Plugin Framework for Firefox',
+        url:'http://www.adobe.com/products/flashplayer.html ',
+        version:{
+            url:'http://get.adobe.com/flashplayer/',
+            regex:'<span id="clientversion">([0-9]+(?:\.[0-9]+)+)</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
+        silentflags:'/verysilent',
+        installversion:{    
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }

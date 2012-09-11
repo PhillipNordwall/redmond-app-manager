@@ -32,6 +32,8 @@ import re
 import os
 import _winreg
 import copy
+import sys
+import catalog
 
 def getPage(url):
     """Returns the contents of a url as a string.
@@ -141,7 +143,9 @@ def getWebVersion(d):
 def getDownloadURL(d):
     """Get the DownloadURL from the web of the catalog entry in d
 
-    Use the page at the url specified in d['download']['url'], and the regular
+    Use the download type specified in d['download']['downloadtype']
+    if downloadtype is direct download, download the file stored at d['download']['url'].
+    If the download type is  pagesearch use the url specified in d['download']['url'] and the regular
     expression specified in d['download']['regex'] to find the download url of
     the latest version of the passed package. The d['download']['regexpos']'th
     match of the regular expression is returned.
@@ -154,7 +158,12 @@ def getDownloadURL(d):
     """
     try:
         expandedVersion=expandVersion(d)
-        downurl = scrapePageDict(expandedVersion['download'])
+        downurl=expandedVersion
+
+        #Here is a switch to determine action based on download type. Default is direct download
+        if d['downloadtype']=='pagesearch':
+            downurl = scrapePageDict(expandedVersion['download'])
+
         fredirectedurl = urllib2.urlopen(downurl)
         redirectedurl = fredirectedurl.geturl()
         fredirectedurl .close()
@@ -187,6 +196,7 @@ def downloadLatest(d, location='downloads\\'):
         name = d['name']
         version = getWebVersion(d)
         downurl = getDownloadURL(d)
+        
         furl = urllib2.urlopen(downurl)
         filecontents = furl.read()
         furl.close()
@@ -423,7 +433,7 @@ def expandVersion(d):
     @todo: XXX: exception handling
     """
     url = d['download']['url']
-    if '##VERSION##' in url or '##DOTLESSVERSION' in url:
+    if '##VERSION##' in url or '##DOTLESSVERSION##' in url:
         ret = copy.deepcopy(d)
         version = getWebVersion(d)
         dotlessversion = re.sub('\.', '', version)
@@ -473,3 +483,20 @@ def getCollWebVersions(catalog, collection):
     """@todo: XXX: STUB NEEDS FILLED OUT"""
     raise Exception("This is a stub")
     return 0
+
+
+def main(argv):
+    
+    if len(argv)==0:
+        print "Usage:python utils.py [version|localversion|fetch] {package name}
+        return -1
+
+    if argv[1]=="version":
+        getWebVersion(catalog.catlog[argv[1]])
+    elif argv[1]=="localversion":
+        pass
+    elif argv[1]=="fetch":
+        downloadLatest(catalog.catalog[argv[1]])
+
+if __name__ == "__main__":   
+    main(sys.argv)
