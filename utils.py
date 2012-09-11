@@ -189,7 +189,7 @@ def getDownloadURL(d):
     else:
         return redirectedurl
 
-def downloadLatest(d, location='downloads\\'):
+def downloadLatest(d, location='downloads\\', overwrite=False):
     """Download the latest version of the package d.
 
     Use the information specified in the package d to download the latest
@@ -200,6 +200,7 @@ def downloadLatest(d, location='downloads\\'):
     as well as a 'version', and 'download' dict containing 'url', 'regex', and
     'regexpos'.
     @param location The location to download the file to.
+    @param overwrite Boolean enabling overwriting of a file if it exists.
     @return the path to the downloaded file.
     """
     try:
@@ -211,28 +212,33 @@ def downloadLatest(d, location='downloads\\'):
         
         furl = opener.open(downurl)
 
-        filecontents = furl.read()
-        furl.close()
         parsed=urllib2.urlparse.urlparse(furl.geturl())
         pathname = urllib2.url2pathname(parsed.path)
         filename = pathname.split("\\")[-1]
         newfileloc = location + name + '---' + version + '---' + filename
-        with open(newfileloc, "wb") as f:
-            f.write(filecontents)
+        # if the file doesn't exist or we allow overwriteing write the file
+        if overwrite or not os.path.exists(newfileloc):
+            filecontents = furl.read()
+            with open(newfileloc, "wb") as f:
+                f.write(filecontents)
+        else:
+            print 'File already exists and overwriting was not enabled'
+            print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
+        furl.close()
     except IOError as (errno, strerror):
         print 'could not open file, I/O error({0}): {1}'.format(errno, strerror)
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except TypeError as strerror:
         print "TypeError: %s, location may not be a string" % strerror
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except urllib2.URLError:
         print 'could not connet to and read from %s' % downurl
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except KeyError:
         print 'd did not contain a "name" entry'
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except:
-        print 'unknown error running downloadLatest(%s, %s)' %(d, location)
+        print 'unknown error running downloadLatest(%s, %s, %s)' %(d, location, overwrite)
         raise
     else:
         return newfileloc
