@@ -218,6 +218,7 @@ def downloadLatest(d, location='downloads\\', overwrite=False):
         newfileloc = location + name + '---' + version + '---' + filename
         # if the file doesn't exist or we allow overwriteing write the file
         if overwrite or not os.path.exists(newfileloc):
+            #XXX This needs to be modified to be done in blocks.
             filecontents = furl.read()
             with open(newfileloc, "wb") as f:
                 f.write(filecontents)
