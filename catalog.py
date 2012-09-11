@@ -411,7 +411,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'http://download.virtualbox.org/virtualbox/4.1.22/VirtualBox-4.1.22-80657-Win.exe',
+            url:'http://download.virtualbox.org/virtualbox/##VERSION##/VirtualBox-##VERSION##-80657-Win.exe',
             regex:'0',
             regexpos:0},
         silentflags:'/verysilent',
@@ -423,5 +423,102 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
+        },
+    'Python2':{
+        name:'Python 2',
+        category:'Programming',
+        description:'T3h l337t3st Programming Language Yo',
+        url:'python.org',
+        version:{
+            url:'http://python.org/download/',
+            regex:'Python (2(?:\.[0-9]+)+)',
+            regexpos:1},
+        download:{
+            downloadtype:'directurl',
+            url:'http://python.org/ftp/python/##VERSION##/python-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Python3':{
+        name:'Python 3',
+        category:'Programming',
+        description:'If you are into that New Age Stuff',
+        url:'',
+        version:{
+            url:'http://python.org/download/',
+            regex:'Python (3(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://python.org/ftp/python/##VERSION##/python-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SmartGit':{
+        name:'SmartGit',
+        category:'Source Control Management',
+        description:'The Smart way to git',
+        url:'http://www.syntevo.com/smartgit/index.html',
+        version:{
+            url:'http://www.syntevo.com/smartgit/index.html',
+            regex:'Version:  <span>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.syntevo.com/download/smartgit/smartgit-win32-setup-jre-##UNDERSCOREVERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+   
+    'rwhod':{
+        name:'Windows R Who Daemon',
+        category:'Utilities',
+        description:'Answers linux rwho requests for finding people on your network',
+        url:'http://matthew.loar.name/software/rwho/',
+        version:{
+            url:'http://matthew.loar.name/software/rwho/',
+            regex:'([0-9]+(?:\.[0-9]+)+)</td>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://matthew.loar.name/software/archives/rwho/##VERSION##/rwho.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
         }
-    }
+     }
