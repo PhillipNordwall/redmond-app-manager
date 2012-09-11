@@ -517,7 +517,7 @@ def main(argv):
     if argv[1]=="version":
         print getWebVersion(package)
     elif argv[1]=="localversion":
-        print getInstalledVersion(package):
+        print getInstalledVersion(package)
     elif argv[1]=="fetch":
         downloadLatest(package)
 
