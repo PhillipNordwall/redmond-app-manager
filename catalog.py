@@ -13,6 +13,7 @@ key = 'key'
 subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
+path = 'path'
 
 
 #####ROLE YOUR OWN CAPTURING GROUPS
@@ -52,6 +53,95 @@ catalog={
             regexpos:0
             }
         },
+    'LibreOffice':{
+        name:'LibreOffice',
+        category:'Editors and Viewers',
+        description:'Ffree, libre and open source personal productivity suite.',
+        url:'http://www.libreoffice.org/',
+        version:{
+            url:'http://www.libreoffice.org/download/',
+            regex:'version ([0-9]+(?:\.[0-9]+)+), English',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.documentfoundation.org/libreoffice/stable/##VERSION##/win/x86/LibO_##VERSION##_Win_x86_install_multi.msi'},
+        silentflags:'/quiet',
+        installversion:{
+            querytype:'regkey',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\LibreOffice\\LibreOffice',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
+            }
+        },
+    'Tightvncviewer':{
+        name:'TightVNCViewer',
+        category:'Internet Tools',
+        description:'TightVNC is a free remote control software package.',
+        url:'http://www.tightvnc.com/',
+        version:{
+            url:'http://www.tightvnc.com/download.html',
+            regex:'Download TightVNC Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.tightvnc.com/download/##VERSION##/tightvnc-##VERSION##-setup-64bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/quiet',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TightVNC',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Emacs':{
+        name:'Emacs',
+        category:'Editors and Viewers',
+        description:'GNU Emacs is an extensible, customizable text editor and more.',
+        url:'http://www.gnu.org/software/emacs/',
+        version:{
+            url:'http://www.gnu.org/software/emacs/',
+            regex:'The current stable release is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-##VERSION##-bin-i386.zip'},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'filepathname',
+            path:'c:\\Program Files (x86)\\',
+            regex:'Emacs ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Git':{
+        name:'Git for Windows',
+        category:'Programming Tools',
+        description:'Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.',
+        url:'http://git-scm.com/',
+        version:{
+            url:'http://git-scm.com/download/win',
+            regex:'version <strong>([0-9]+(?:\.[0-9]+)+)</strong> ',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://git-scm.com/download/win',
+            regex:'a href="(.*[0-9]+(?:\.[0-9]+)+.*.exe)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Git_is1',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+).*',
+            regexpos:0
+            }
+        },    
     'AdobeReader':{
         name:'AdobeReader',
         category:'Editors and Viewers',
