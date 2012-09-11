@@ -14,6 +14,13 @@ subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
 
+
+#####ROLE YOUR OWN CAPTURING GROUPS
+months="Janurary|February|March|April|May|June|July|August|September|October|November|December"
+alphabeta="Alpha|Beta|alpha|beta"
+
+
+#####
 minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
     '7-Zip', 'Firefox', 'Scribus' ]
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
@@ -509,6 +516,318 @@ catalog={
         download:{
             downloadtype:'directurl',
             url:'http://matthew.loar.name/software/archives/rwho/##VERSION##/rwho.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ScreenRecorder':{
+        name:'Screen Recorder',
+        category:'Utilities',
+        description:'For Recording Screens',
+        url:'http://technet.microsoft.com/en-us/magazine/2009.03.utilityspotlight2.aspx?pr=blog',
+        version:{
+            url:'http://technet.microsoft.com/en-us/magazine/2009.03.utilityspotlight2.aspx?pr=blog',
+            regex:'UtilityOnline((?:'+months+')[0-9]+_[0-9]+)',
+            regexpos:1},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/f/d/0/fd05def7-68a1-4f71-8546-25c359cc0842/UtilityOnlineMarch092009_03.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SysinternalsSuite':{
+        name:'Sysinternals Suite',
+        category:'Utilities',
+        description:'Collection of Mark Russinovich system utilities',
+        url:'http://technet.microsoft.com/en-us/sysinternals',
+        version:{
+            url:'http://technet.microsoft.com/en-us/sysinternals/bb842062',
+            regex:'<p>Updated: ((?:'+months+') [0-9]+, [0-9]+)</p>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.sysinternals.com/files/SysinternalsSuite.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'CamStudioCodec':{
+        name:'CamStudio Video Codec',
+        category:'Multimedia',
+        description:'The Codec for Camstudio',
+        url:'http://camstudio.org/',
+        version:{
+            url:'http://camstudio.org/',
+            regex:'Lossless Video Codec v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://voxel.dl.sourceforge.net/project/camstudio/legacy/CamStudioCodec-##VERSION##-w32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Putty':{
+        name:'Putty',
+        category:'Utilties',
+        description:'Windows SSH and telenet client',
+        url:'http://www.chiark.greenend.org.uk/~sgtatham/putty/',
+        version:{
+            url:'http://www.chiark.greenend.org.uk/~sgtatham/putty/',
+            regex:'The latest version is ((?:'+alphabeta+') [0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',  
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }   
+        },
+    'WinSCP':{
+        name:'WinSCP',
+        category:'Utilties',
+        description:'Secure Copy for Windows',
+        url:'http://winscp.net/eng/index.php',
+        version:{
+            url:'http://winscp.net/eng/download.php',
+            regex:'WinSCP ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.winscp.net/download/files/201209112230068836a699a59f83af7546a9597cf90b/winscp##DOTLESSVERSION##setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'WindowsSystemControlCenter':{
+        name:'Windows System Control Center',
+        category:'Utilities ',
+        description:'Utility Organizer',
+        url:'http://www.kls-soft.com/wscc/index.php',
+        version:{
+            url:'http://www.kls-soft.com/wscc/index.php',
+            regex:'Latest version:</font></strong> ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.kls-soft.com/downloads/wscc.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'VioletUML':{
+        name:'Violet UML Editor',
+        category:'Programming',
+        description:'A UML editor with nice benefits',
+        url:'http://alexdp.free.fr/violetumleditor/page.php',
+        version:{
+            url:'http://sourceforge.net/projects/violet/',
+            regex:'com.horstmann.violet-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/violet/violetumleditor/##VERSION##/com.horstmann.violet-##VERSION.jar',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Racket':{
+        name:'Racket',
+        category:'Programming',
+        description:'A Lisp',
+        url:'http://racket-lang.org/',
+        version:{
+            url:'http://racket-lang.org/download/',
+            regex:'Download Racket v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.racket-lang.org/installers/##VERSION##/racket/racket-##VERSION##-bin-i386-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Netbeans':{
+        name:'Netbeans',
+        category:'Programming',
+        description:'Java IDE',
+        url:'netbeans.org',
+        version:{
+            url:'http://netbeans.org/features/index.html',
+            regex:'NetBeans IDE ([0-9]+(?:\.[0-9]+)+) Features',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.netbeans.org/netbeans/##VERSION##/final/bundles/netbeans-##VERSION##-ml-javase-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLJDBC':{
+        name:'MySQLJDBC',
+        category:'Database',
+        description:'Java Database Connector for Mysql',
+        url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+        version:{   
+            url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+            regex:'Connector/J ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.mysql.com/get/Downloads/Connector-J/mysql-connector-java-##VERSION##.tar.gz/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLWorkbench':{
+        name:'MySQL Workbench',
+        category:'Database',
+        description:'GUI Mysql editor',
+        url:'http://www.mysql.com/products/workbench/',
+        version:{
+            url:'http://dev.mysql.com/downloads/workbench/',
+            regex:'MySQL Workbench ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-gpl-##VERSION##-win32.msi/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Squeak':{
+        name:'Squeak',
+        category:'http://www.squeak.org ',
+        description:'',
+        url:'',
+        version:{
+            url:'http://www.squeakvm.org/win32/',
+            regex:'SqueakVM-Win32-([0-9]+(?:\.[0-9]+)+)-bin.zip</a>. ',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.squeakvm.org/win32/release/SqueakVM-Win32-##VERSION##-bin.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'EMPTYEND':{
+        name:'',
+        category:'',
+        description:'',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
