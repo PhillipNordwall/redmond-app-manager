@@ -20,6 +20,16 @@ broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
 broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader' ]
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
+########### Camille's work list ###########################################
+#
+#pidgin == gets version number, does not install yet. 
+#VLC
+#XEmacs
+#TortiseGit
+#TortoiseHG
+#Windodws System Control Center
+
+############################################################################
 catalog={
     'EMPTY':{
         name:'',
@@ -346,6 +356,28 @@ catalog={
             url:'aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
         silentflags:'/verysilent',
         installversion:{    
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Pidgin':{
+        name:'Pidgin',
+        category:'Internet tool',
+        description:'Universal chat program ',
+        url:'http://pidgin.im/',
+        version:{
+            url:'http://pidgin.im/',
+            regex:'<span class="number">([0-9]+(?:\.[0-9]+)+)</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://voxel.dl.sourceforge.net/project/pidgin/Pidgin/##VERSION##/pidgin-##VERSION##.exe'},
+        silentflags:'/verysilent',
+        installversion:{
             querytype:'',
             key:'HKLM',
             subkey:'SOFTWARE\\',
