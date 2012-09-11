@@ -161,7 +161,7 @@ def getDownloadURL(d):
         downurl=expandedVersion
 
         #Here is a switch to determine action based on download type. Default is direct download
-        if d['downloadtype']=='pagesearch':
+        if d['download']['downloadtype']=='pagesearch':
             downurl = scrapePageDict(expandedVersion['download'])
 
         fredirectedurl = urllib2.urlopen(downurl)
@@ -487,11 +487,11 @@ def getCollWebVersions(catalog, collection):
 
 def main(argv):
     if len(argv)<3:
-        print "Usage:python utils.py [version|localversion|fetch] {package name}
+        print "Usage:python utils.py [version|localversion|fetch] {package name}"
         return -1
 
     if argv[1]=="version":
-        getWebVersion(catalog.catalog[argv[2]])
+        print getWebVersion(catalog.catalog[argv[2]])
     elif argv[1]=="localversion":
         pass
     elif argv[1]=="fetch":
