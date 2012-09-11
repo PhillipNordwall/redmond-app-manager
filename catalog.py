@@ -672,7 +672,151 @@ catalog={
             regexpos:0
             }
         },
-    'EMPTY':{
+    'VioletUML':{
+        name:'Violet UML Editor',
+        category:'Programming',
+        description:'A UML editor with nice benefits',
+        url:'http://alexdp.free.fr/violetumleditor/page.php',
+        version:{
+            url:'http://sourceforge.net/projects/violet/',
+            regex:'com.horstmann.violet-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/violet/violetumleditor/##VERSION##/com.horstmann.violet-##VERSION.jar',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Racket':{
+        name:'Racket',
+        category:'Programming',
+        description:'A Lisp',
+        url:'http://racket-lang.org/',
+        version:{
+            url:'http://racket-lang.org/download/',
+            regex:'Download Racket v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.racket-lang.org/installers/##VERSION##/racket/racket-##VERSION##-bin-i386-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Netbeans':{
+        name:'Netbeans',
+        category:'Programming',
+        description:'Java IDE',
+        url:'netbeans.org',
+        version:{
+            url:'http://netbeans.org/features/index.html',
+            regex:'NetBeans IDE ([0-9]+(?:\.[0-9]+)+) Features',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.netbeans.org/netbeans/##VERSION##/final/bundles/netbeans-##VERSION##-ml-javase-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLJDBC':{
+        name:'MySQLJDBC',
+        category:'Database',
+        description:'Java Database Connector for Mysql',
+        url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+        version:{   
+            url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+            regex:'Connector/J ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.mysql.com/get/Downloads/Connector-J/mysql-connector-java-##VERSION##.tar.gz/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLWorkbench':{
+        name:'MySQL Workbench',
+        category:'Database',
+        description:'GUI Mysql editor',
+        url:'http://www.mysql.com/products/workbench/',
+        version:{
+            url:'http://dev.mysql.com/downloads/workbench/',
+            regex:'MySQL Workbench ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-gpl-##VERSION##-win32.msi/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Squeak':{
+        name:'Squeak',
+        category:'http://www.squeak.org ',
+        description:'',
+        url:'',
+        version:{
+            url:'http://www.squeakvm.org/win32/',
+            regex:'SqueakVM-Win32-([0-9]+(?:\.[0-9]+)+)-bin.zip</a>. ',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.squeakvm.org/win32/release/SqueakVM-Win32-##VERSION##-bin.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'EMPTYEND':{
         name:'',
         category:'',
         description:'',
