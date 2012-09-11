@@ -17,7 +17,7 @@ querytype = "querytype"
 minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
     '7-Zip', 'Firefox', 'Scribus' ]
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
-broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader' ]
+broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 catalog={
@@ -343,7 +343,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
+            url:'http://aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
         silentflags:'/verysilent',
         installversion:{    
             querytype:'',
