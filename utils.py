@@ -164,8 +164,9 @@ def getDownloadURL(d):
     """
     try:
         expandedVersion=expandVersion(d)
-        downurl=expandedVersion
+        downurl=expandedVersion['download']['url']
 
+        
         #Here is a switch to determine action based on download type. Default is direct download
         if d['download']['downloadtype']=='pagesearch':
             downurl = scrapePageDict(expandedVersion['download'])
