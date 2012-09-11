@@ -512,12 +512,13 @@ def main(argv):
         print "Usage:python utils.py [version|localversion|fetch] {package name}"
         return -1
 
+    package = catalog.catalog[argv[2]]
     if argv[1]=="version":
-        print getWebVersion(catalog.catalog[argv[2]])
+        print getWebVersion(package)
     elif argv[1]=="localversion":
         pass
     elif argv[1]=="fetch":
-        downloadLatest(catalog.catalog[argv[2]])
+        downloadLatest(package)
 
 if __name__ == "__main__":   
     main(sys.argv)
