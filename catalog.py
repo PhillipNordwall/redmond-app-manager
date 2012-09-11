@@ -353,5 +353,75 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
+        },
+    'Flash-InternetExplorer':{
+        name:'Adobe Flash Player (IE)',
+        category:'Multimedia',
+        description:'Virus Plugin Framework for IE',
+        url:'http://www.adobe.com/products/flashplayer.html ',
+        version:{
+            url:'http://get.adobe.com/flashplayer/',
+            regex:'<span id="clientversion">([0-9]+(?:\.[0-9]+)+)</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://aihdownload.adobe.com/bin/live/install_flashplayer11x32ax_mssd_aih.exe'},
+        silentflags:'/verysilent',
+        installversion:{    
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Thunderbird':{
+        name:'Thunderbird',
+        category:'Internet Tools',
+        description:'Bayes Classifier Spam Detector',
+        url:'http://www.mozilla.org/en-US/thunderbird/',
+        version:{
+            url:'http://www.mozilla.org/en-US/thunderbird/15.0.1/releasenotes/',
+            regex:'v\.([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.cdn.mozilla.net/pub/mozilla.org/thunderbird/releases/##VERSION##/win32/en-US/Thunderbird%20Setup%20##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'VirtualBox':{
+        name:'VirtualBox',
+        category:'Virtual Machine',
+        description:'x86 and AMD64/Intel64 virtualization product',
+        url:'https://www.virtualbox.org/',
+        version:{
+            url:'https://www.virtualbox.org/wiki/Downloads',
+            regex:'VirtualBox ([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.virtualbox.org/virtualbox/4.1.22/VirtualBox-4.1.22-80657-Win.exe',
+            regex:'0',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
         }
     }
