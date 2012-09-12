@@ -985,4 +985,3 @@ catalog={
             # regexpos:0
             # }
         # }
-    }
