@@ -386,4 +386,26 @@ catalog={
             regexpos:0
             }
         }
+	# 'VLC':{
+        # name:'VLC',
+        # category:'multimedia',
+        # description:'Multimedia player for files, DVD, Audio, CD, VCD and streaming products',
+        # url:'http://www.videolan.org/',
+        # version:{
+            # url:'http://www.videolan.org/',
+            # regex:'latestVersion  =([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'directurl',
+            # url:'http://softlayer.dl.sourceforge.net/project/vlc/2.0.3/win32/vlc-2.0.3-win32.exe'},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # }
     }
