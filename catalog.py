@@ -816,6 +816,174 @@ catalog={
             regexpos:0
             }
         },
+    'LyX':{
+        name:'Lyx',
+        category:'Editor',
+        description:'Latex Editor',
+        url:'http://wiki.lyx.org/LyX/Welcome',
+        version:{
+            url:'http://wiki.lyx.org/Windows/Windows',
+            regex:'Current stable version: ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'ftp://ftp.lyx.org/pub/lyx/bin/##VERSION##/LyX-##VERSION##-Installer.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'R':{
+        name:'R',
+        category:'Programming',
+        description:'Statistical and Graphical Computing',
+        url:'http://cran.cs.wwu.edu/',
+        version:{
+            url:'http://www.r-project.org/main.shtml',
+            regex:'R version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://cran.cs.wwu.edu/bin/windows/base/R-##VERSION##-win.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Clisp':{
+        name:'Clisp',
+        category:'Programming',
+        description:'A GNU ANSI C Common Lisp',
+        url:'http://www.clisp.org/',
+        version:{
+            url:'http://sourceforge.net/projects/clisp/',
+            regex:'clisp\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/clisp/clisp/##VERSION##/clisp-##VERSION##-win32-mingw-big.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'PHP5NonThreadSafe':{
+        name:'PHP',
+        category:'Programming',
+        description:'A Great! Programming Language',
+        url:'http://windows.php.net',
+        version:{
+            url:'http://windows.php.net/download/',
+            regex:'PHP 5.4 \\(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://windows.php.net/downloads/releases/php-##VERSION##-nts-Win32-VC9-x86.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'PHP5ThreadSafe':{
+        name:'PHP',
+        category:'Programming',
+        description:'A Great! Programming Language',
+        url:'http://windows.php.net',
+        version:{
+            url:'http://windows.php.net/download/',
+            regex:'PHP 5.4 \\(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://windows.php.net/downloads/releases/php-##VERSION##-Win32-VC9-x86.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SMLNJ':{
+        name:'Standard ML New Jersey',
+        category:'Programming',
+        description:'A non Lazy Functional Programming Language',
+        url:'http://www.smlnj.org/',
+        version:{
+            url:'http://www.smlnj.org/dist/working/index.html',
+            regex:'<b>([0-9]+(?:\.[0-9]+)+)</b>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://smlnj.cs.uchicago.edu/dist/working/##VERSION##/smlnj.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+       'GProlog':{
+        name:'GNU Prolog',
+        category:'Programming',
+        description:'GNU Implementation of the declarative language Prolog',
+        url:'http://www.gprolog.org',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'EMPTYEND':{
         name:'',
         category:'',
