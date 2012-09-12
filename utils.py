@@ -35,6 +35,10 @@ import copy
 import sys
 import catalog
 
+#We emulate Mozilla Firefox on Windows 7 64 bit as our UA
+
+userAgent=[('User-Agent',' Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0')]
+
 def getPage(url):
     """Returns the contents of a url as a string.
 
@@ -44,7 +48,9 @@ def getPage(url):
     @return A string containing the page contents of url.
     """
     try:
-        f=urllib2.urlopen(url)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
+        f=opener.open(url)
         page = f.read()
         f.close()
     except urllib2.URLError:
@@ -158,13 +164,17 @@ def getDownloadURL(d):
     """
     try:
         expandedVersion=expandVersion(d)
-        downurl=expandedVersion
+        downurl=expandedVersion['download']['url']
 
+        
         #Here is a switch to determine action based on download type. Default is direct download
-        if d['downloadtype']=='pagesearch':
+        if d['download']['downloadtype']=='pagesearch':
             downurl = scrapePageDict(expandedVersion['download'])
 
-        fredirectedurl = urllib2.urlopen(downurl)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
+        fredirectedurl = opener.open(downurl)
+        
         redirectedurl = fredirectedurl.geturl()
         fredirectedurl .close()
     except urllib2.URLError:
@@ -179,7 +189,7 @@ def getDownloadURL(d):
     else:
         return redirectedurl
 
-def downloadLatest(d, location='downloads\\'):
+def downloadLatest(d, location='downloads\\', overwrite=False):
     """Download the latest version of the package d.
 
     Use the information specified in the package d to download the latest
@@ -190,36 +200,46 @@ def downloadLatest(d, location='downloads\\'):
     as well as a 'version', and 'download' dict containing 'url', 'regex', and
     'regexpos'.
     @param location The location to download the file to.
+    @param overwrite Boolean enabling overwriting of a file if it exists.
     @return the path to the downloaded file.
     """
     try:
         name = d['name']
         version = getWebVersion(d)
         downurl = getDownloadURL(d)
+        opener=urllib2.build_opener()
+        opener.addheaders=userAgent
         
-        furl = urllib2.urlopen(downurl)
-        filecontents = furl.read()
-        furl.close()
+        furl = opener.open(downurl)
+
         parsed=urllib2.urlparse.urlparse(furl.geturl())
         pathname = urllib2.url2pathname(parsed.path)
         filename = pathname.split("\\")[-1]
         newfileloc = location + name + '---' + version + '---' + filename
-        with open(newfileloc, "wb") as f:
-            f.write(filecontents)
+        # if the file doesn't exist or we allow overwriteing write the file
+        if overwrite or not os.path.exists(newfileloc):
+            #XXX This needs to be modified to be done in blocks.
+            filecontents = furl.read()
+            with open(newfileloc, "wb") as f:
+                f.write(filecontents)
+        else:
+            print 'File already exists and overwriting was not enabled'
+            print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
+        furl.close()
     except IOError as (errno, strerror):
         print 'could not open file, I/O error({0}): {1}'.format(errno, strerror)
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except TypeError as strerror:
         print "TypeError: %s, location may not be a string" % strerror
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except urllib2.URLError:
         print 'could not connet to and read from %s' % downurl
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except KeyError:
         print 'd did not contain a "name" entry'
-        print 'when calling downloadLatest(%s, %s)' %(d, location)
+        print 'when calling downloadLatest(%s, %s, %s)' %(d, location, overwrite)
     except:
-        print 'unknown error running downloadLatest(%s, %s)' %(d, location)
+        print 'unknown error running downloadLatest(%s, %s, %s)' %(d, location, overwrite)
         raise
     else:
         return newfileloc
@@ -422,7 +442,7 @@ def expandVersion(d):
     """Expand version numbers in download url.
 
     If the 'download' section of d contains a 'url' section that has a
-    ##VERSION##, or a ##DOTLESSVERSION##, lookup the latest webversion and
+    ##VERSION##, or a ##DOTLESSVERSION## ##UNDERSCOREVERSION##, lookup the latest webversion and
     replace the placeholder with the appropriate text.
 
     @param d The dictionary entry for a package, containing a valid 'version'
@@ -433,12 +453,14 @@ def expandVersion(d):
     @todo: XXX: exception handling
     """
     url = d['download']['url']
-    if '##VERSION##' in url or '##DOTLESSVERSION##' in url:
+    if '##VERSION##' in url or '##DOTLESSVERSION##' or '##UNDERSCOREVERSION##' in url:
         ret = copy.deepcopy(d)
         version = getWebVersion(d)
         dotlessversion = re.sub('\.', '', version)
+        underscoreversion=re.sub('\.','_', version)
         url = re.sub('##VERSION##', version, url)
         url = re.sub('##DOTLESSVERSION##', dotlessversion, url)
+        url = re.sub('##UNDERSCOREVERSION##', underscoreversion, url)
         ret['download']['url'] = url
         return ret
     else:
@@ -486,16 +508,18 @@ def getCollWebVersions(catalog, collection):
 
 
 def main(argv):
+    
     if len(argv)<3:
-        print "Usage:python utils.py [version|localversion|fetch] {package name}
+        print "Usage:python utils.py [version|localversion|fetch] {package name}"
         return -1
 
+    package = catalog.catalog[argv[2]]
     if argv[1]=="version":
-        getWebVersion(catalog.catalog[argv[2]])
+        print getWebVersion(package)
     elif argv[1]=="localversion":
-        pass
+        print getInstalledVersion(package)
     elif argv[1]=="fetch":
-        downloadLatest(catalog.catalog[argv[2]])
+        downloadLatest(package)
 
 if __name__ == "__main__":   
     main(sys.argv)

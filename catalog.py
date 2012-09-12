@@ -13,11 +13,19 @@ key = 'key'
 subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
+path = 'path'
 
+
+#####ROLE YOUR OWN CAPTURING GROUPS
+months="Janurary|February|March|April|May|June|July|August|September|October|November|December"
+alphabeta="Alpha|Beta|alpha|beta"
+
+
+#####
 minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
     '7-Zip', 'Firefox', 'Scribus' ]
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
-broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader' ]
+broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 ########### Camille's work list ###########################################
@@ -55,6 +63,95 @@ catalog={
             regexpos:0
             }
         },
+    'LibreOffice':{
+        name:'LibreOffice',
+        category:'Editors and Viewers',
+        description:'Ffree, libre and open source personal productivity suite.',
+        url:'http://www.libreoffice.org/',
+        version:{
+            url:'http://www.libreoffice.org/download/',
+            regex:'version ([0-9]+(?:\.[0-9]+)+), English',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.documentfoundation.org/libreoffice/stable/##VERSION##/win/x86/LibO_##VERSION##_Win_x86_install_multi.msi'},
+        silentflags:'/quiet',
+        installversion:{
+            querytype:'regkey',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\LibreOffice\\LibreOffice',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:-1
+            }
+        },
+    'Tightvncviewer':{
+        name:'TightVNCViewer',
+        category:'Internet Tools',
+        description:'TightVNC is a free remote control software package.',
+        url:'http://www.tightvnc.com/',
+        version:{
+            url:'http://www.tightvnc.com/download.html',
+            regex:'Download TightVNC Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.tightvnc.com/download/##VERSION##/tightvnc-##VERSION##-setup-64bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/quiet',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TightVNC',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Emacs':{
+        name:'Emacs',
+        category:'Editors and Viewers',
+        description:'GNU Emacs is an extensible, customizable text editor and more.',
+        url:'http://www.gnu.org/software/emacs/',
+        version:{
+            url:'http://www.gnu.org/software/emacs/',
+            regex:'The current stable release is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-##VERSION##-bin-i386.zip'},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'filepathname',
+            path:'c:\\Program Files (x86)\\',
+            regex:'Emacs ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Git':{
+        name:'Git for Windows',
+        category:'Programming Tools',
+        description:'Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.',
+        url:'http://git-scm.com/',
+        version:{
+            url:'http://git-scm.com/download/win',
+            regex:'version <strong>([0-9]+(?:\.[0-9]+)+)</strong> ',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://git-scm.com/download/win',
+            regex:'a href="(.*[0-9]+(?:\.[0-9]+)+.*.exe)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'regval',
+            key:'HKLM',
+            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Git_is1',
+            value:'DisplayVersion',
+            regex:'([0-9]+(?:\.[0-9]+)+).*',
+            regexpos:0
+            }
+        },    
     'AdobeReader':{
         name:'AdobeReader',
         category:'Editors and Viewers',
@@ -353,7 +450,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
+            url:'http://aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
         silentflags:'/verysilent',
         installversion:{    
             querytype:'',
@@ -385,7 +482,487 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
+        },
+    'Flash-InternetExplorer':{
+        name:'Adobe Flash Player (IE)',
+        category:'Multimedia',
+        description:'Virus Plugin Framework for IE',
+        url:'http://www.adobe.com/products/flashplayer.html ',
+        version:{
+            url:'http://get.adobe.com/flashplayer/',
+            regex:'<span id="clientversion">([0-9]+(?:\.[0-9]+)+)</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://aihdownload.adobe.com/bin/live/install_flashplayer11x32ax_mssd_aih.exe'},
+        silentflags:'/verysilent',
+        installversion:{    
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Thunderbird':{
+        name:'Thunderbird',
+        category:'Internet Tools',
+        description:'Bayes Classifier Spam Detector',
+        url:'http://www.mozilla.org/en-US/thunderbird/',
+        version:{
+            url:'http://www.mozilla.org/en-US/thunderbird/15.0.1/releasenotes/',
+            regex:'v\.([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.cdn.mozilla.net/pub/mozilla.org/thunderbird/releases/##VERSION##/win32/en-US/Thunderbird%20Setup%20##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'VirtualBox':{
+        name:'VirtualBox',
+        category:'Virtual Machine',
+        description:'x86 and AMD64/Intel64 virtualization product',
+        url:'https://www.virtualbox.org/',
+        version:{
+            url:'https://www.virtualbox.org/wiki/Downloads',
+            regex:'VirtualBox ([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.virtualbox.org/virtualbox/##VERSION##/VirtualBox-##VERSION##-80657-Win.exe',
+            regex:'0',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Python2':{
+        name:'Python 2',
+        category:'Programming',
+        description:'T3h l337t3st Programming Language Yo',
+        url:'python.org',
+        version:{
+            url:'http://python.org/download/',
+            regex:'Python (2(?:\.[0-9]+)+)',
+            regexpos:1},
+        download:{
+            downloadtype:'directurl',
+            url:'http://python.org/ftp/python/##VERSION##/python-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Python3':{
+        name:'Python 3',
+        category:'Programming',
+        description:'If you are into that New Age Stuff',
+        url:'',
+        version:{
+            url:'http://python.org/download/',
+            regex:'Python (3(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://python.org/ftp/python/##VERSION##/python-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SmartGit':{
+        name:'SmartGit',
+        category:'Source Control Management',
+        description:'The Smart way to git',
+        url:'http://www.syntevo.com/smartgit/index.html',
+        version:{
+            url:'http://www.syntevo.com/smartgit/index.html',
+            regex:'Version:  <span>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.syntevo.com/download/smartgit/smartgit-win32-setup-jre-##UNDERSCOREVERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+   
+    'rwhod':{
+        name:'Windows R Who Daemon',
+        category:'Utilities',
+        description:'Answers linux rwho requests for finding people on your network',
+        url:'http://matthew.loar.name/software/rwho/',
+        version:{
+            url:'http://matthew.loar.name/software/rwho/',
+            regex:'([0-9]+(?:\.[0-9]+)+)</td>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://matthew.loar.name/software/archives/rwho/##VERSION##/rwho.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ScreenRecorder':{
+        name:'Screen Recorder',
+        category:'Utilities',
+        description:'For Recording Screens',
+        url:'http://technet.microsoft.com/en-us/magazine/2009.03.utilityspotlight2.aspx?pr=blog',
+        version:{
+            url:'http://technet.microsoft.com/en-us/magazine/2009.03.utilityspotlight2.aspx?pr=blog',
+            regex:'UtilityOnline((?:'+months+')[0-9]+_[0-9]+)',
+            regexpos:1},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/f/d/0/fd05def7-68a1-4f71-8546-25c359cc0842/UtilityOnlineMarch092009_03.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SysinternalsSuite':{
+        name:'Sysinternals Suite',
+        category:'Utilities',
+        description:'Collection of Mark Russinovich system utilities',
+        url:'http://technet.microsoft.com/en-us/sysinternals',
+        version:{
+            url:'http://technet.microsoft.com/en-us/sysinternals/bb842062',
+            regex:'<p>Updated: ((?:'+months+') [0-9]+, [0-9]+)</p>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.sysinternals.com/files/SysinternalsSuite.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'CamStudioCodec':{
+        name:'CamStudio Video Codec',
+        category:'Multimedia',
+        description:'The Codec for Camstudio',
+        url:'http://camstudio.org/',
+        version:{
+            url:'http://camstudio.org/',
+            regex:'Lossless Video Codec v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://voxel.dl.sourceforge.net/project/camstudio/legacy/CamStudioCodec-##VERSION##-w32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Putty':{
+        name:'Putty',
+        category:'Utilties',
+        description:'Windows SSH and telenet client',
+        url:'http://www.chiark.greenend.org.uk/~sgtatham/putty/',
+        version:{
+            url:'http://www.chiark.greenend.org.uk/~sgtatham/putty/',
+            regex:'The latest version is ((?:'+alphabeta+') [0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',  
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }   
+        },
+    'WinSCP':{
+        name:'WinSCP',
+        category:'Utilties',
+        description:'Secure Copy for Windows',
+        url:'http://winscp.net/eng/index.php',
+        version:{
+            url:'http://winscp.net/eng/download.php',
+            regex:'WinSCP ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.winscp.net/download/files/201209112230068836a699a59f83af7546a9597cf90b/winscp##DOTLESSVERSION##setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'WindowsSystemControlCenter':{
+        name:'Windows System Control Center',
+        category:'Utilities ',
+        description:'Utility Organizer',
+        url:'http://www.kls-soft.com/wscc/index.php',
+        version:{
+            url:'http://www.kls-soft.com/wscc/index.php',
+            regex:'Latest version:</font></strong> ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.kls-soft.com/downloads/wscc.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'VioletUML':{
+        name:'Violet UML Editor',
+        category:'Programming',
+        description:'A UML editor with nice benefits',
+        url:'http://alexdp.free.fr/violetumleditor/page.php',
+        version:{
+            url:'http://sourceforge.net/projects/violet/',
+            regex:'com.horstmann.violet-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/violet/violetumleditor/##VERSION##/com.horstmann.violet-##VERSION.jar',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Racket':{
+        name:'Racket',
+        category:'Programming',
+        description:'A Lisp',
+        url:'http://racket-lang.org/',
+        version:{
+            url:'http://racket-lang.org/download/',
+            regex:'Download Racket v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.racket-lang.org/installers/##VERSION##/racket/racket-##VERSION##-bin-i386-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Netbeans':{
+        name:'Netbeans',
+        category:'Programming',
+        description:'Java IDE',
+        url:'netbeans.org',
+        version:{
+            url:'http://netbeans.org/features/index.html',
+            regex:'NetBeans IDE ([0-9]+(?:\.[0-9]+)+) Features',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.netbeans.org/netbeans/##VERSION##/final/bundles/netbeans-##VERSION##-ml-javase-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLJDBC':{
+        name:'MySQLJDBC',
+        category:'Database',
+        description:'Java Database Connector for Mysql',
+        url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+        version:{   
+            url:'http://www.mysql.com/downloads/connector/j/?product=c-j',
+            regex:'Connector/J ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.mysql.com/get/Downloads/Connector-J/mysql-connector-java-##VERSION##.tar.gz/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MySQLWorkbench':{
+        name:'MySQL Workbench',
+        category:'Database',
+        description:'GUI Mysql editor',
+        url:'http://www.mysql.com/products/workbench/',
+        version:{
+            url:'http://dev.mysql.com/downloads/workbench/',
+            regex:'MySQL Workbench ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-gpl-##VERSION##-win32.msi/from/http://cdn.mysql.com/',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Squeak':{
+        name:'Squeak',
+        category:'http://www.squeak.org ',
+        description:'',
+        url:'',
+        version:{
+            url:'http://www.squeakvm.org/win32/',
+            regex:'SqueakVM-Win32-([0-9]+(?:\.[0-9]+)+)-bin.zip</a>. ',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.squeakvm.org/win32/release/SqueakVM-Win32-##VERSION##-bin.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'EMPTYEND':{
+        name:'',
+        category:'',
+        description:'',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
         }
+    }
 	# 'VLC':{
         # name:'VLC',
         # category:'multimedia',
