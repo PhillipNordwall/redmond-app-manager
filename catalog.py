@@ -576,7 +576,7 @@ catalog={
             regexpos:0
             }
         },
-        'CamStudioCodec':{
+    'CamStudioCodec':{
         name:'CamStudio Video Codec',
         category:'Multimedia',
         description:'The Codec for Camstudio',
@@ -1388,7 +1388,7 @@ catalog={
         installversion:{
             querytype:'',
             key:'HKLM',
-            subkey:'SOFTWARE\\',
+             subkey:'SOFTWARE\\',
             value:'',
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
@@ -1780,6 +1780,152 @@ catalog={
             regexpos:0
             }
         },
+    'Uncrustify':{
+        name:'Uncrustify',
+        category:'Utility',
+        description:'Code Beautification Utility',
+        url:'http://uncrustify.sourceforge.net/',
+        version:{
+            url:'http://sourceforge.net/projects/uncrustify/',
+            regex:'uncrustify-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://hivelocity.dl.sourceforge.net/project/uncrustify/uncrustify/uncrustify-##VERSION##/uncrustify-##VERSION##-win32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    
+    'SQLiteDatabaseBrowser':{
+        name:'SQlite Database Browser',
+        category:'database',
+        description:'Graphical Sqlite Editor',
+        url:'http://sqlitebrowser.sourceforge.net/',
+        version:{
+            url:'http://sourceforge.net/projects/sqlitebrowser/',
+            regex:'sqlitebrowser_([0-9]+_[a-zA-Z]+[0-9]+)_win',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://hivelocity.dl.sourceforge.net/project/sqlitebrowser/sqlitebrowser2/.0%20beta1/sqlitebrowser_##VERSION##_win.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'CMake':{
+        name:'CMake',
+        category:'Programming',
+        description:'Cross Platform Make',
+        url:'http://www.cmake.org/',
+        version:{
+            url:'http://www.cmake.org/cmake/resources/software.html',
+            regex:'Latest Release \(([0-9]+(?:\.[0-9]+)+)\)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.cmake.org/cmake/resources/software.html',
+            regex:'http://www.cmake.org/files/v[0-9]+(?:\.[0-9]+)+/cmake-[0-9]+(?:\.[0-9]+)+-win32-x86.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'AviSynth':{
+        name:'AviSynth',
+        category:'Programming',
+        description:'Scripting langauge for non linear video editing',
+        url:'http://sourceforge.net/projects/avisynth2/',
+        version:{
+            url:'http://sourceforge.net/projects/avisynth2/files/',
+            regex:'Avisynth_([0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://iweb.dl.sourceforge.net/project/avisynth2/AviSynth%202.5/AviSynth%202.5.8/Avisynth_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Spin':{
+        name:'Sping',
+        category:'Programming',
+        description:'Formal Verification of Distributed Software Systems',
+        url:'spinroot.com/spin/whatispin.html',
+        version:{
+            url:'http://spinroot.com/spin/Bin/index.html',
+            regex:'Current Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://spinroot.com/spin/Bin/spin##DOTLESSVERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'XNAGameStudio':{
+        name:'XNA Game Studio',
+        category:'Programming',
+        description:'Xbox DevelopmentE nvironment',
+        url:'http://msdn.microsoft.com/en-us/aa937791.aspx',
+        version:{
+            url:'http://www.microsoft.com/en-us/download/details.aspx?id=23714',
+            regex:'<td class="col2"><span>([0-9]+(?:\.[0-9]+)+)</span></td>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/0/1/4/01483A18-289E-4779-BB5A-0A28DFE18BC5/XNAGS##DOTLESSVERSION##_setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+
     'ENDEMPTY':{
         name:'',
         category:'',
