@@ -29,14 +29,7 @@ broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-I
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 ########### Camille's work list ###########################################
-#
-#pidgin == gets version number, does not install yet. 
-#VLC
-#XEmacs
-#TortiseGit
-#TortoiseHG
-#Windodws System Control Center
-
+#Windodws System Control Center == this one is zipped
 ############################################################################
 catalog={
     'EMPTY':{
@@ -938,7 +931,172 @@ catalog={
             regexpos:0
             }
         },
-    'EMPTYEND':{
+	    'VLC':{
+        name:'VLC',
+        category:'multimedia',
+        description:'Multimedia player for files, DVD, Audio, CD, VCD and streaming products',
+        url:'http://www.videolan.org/',
+        version:{
+            url:'http://www.videolan.org/',
+            regex:'var latestVersion  = \'([0-9]+(?:\.[0-9]+)+)\'',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://voxel.dl.sourceforge.net/project/vlc/##VERSION##/win32/vlc-##VERSION##-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'XEmacs':{
+        name:'XEmacs',
+        category:'Editor',
+        description:'XEmacs',
+        url:'http://www.xemacs.org/Download/index.html',
+        version:{
+            url:'http://www.xemacs.org/Download/win32/index.html#InnoSetup-Stable-Download',
+            regex:'XEmacs ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.xemacs.org/pub/xemacs/binaries/win32/InnoSetup/XEmacs_Setup_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'TortoiseGit-x64':{
+        name:'TortoiseGit-x64',
+        category:'Version Controle',
+        description:'Version Controle',
+        url:'http://code.google.com/p/tortoisegit/',
+        version:{
+            url:'http://code.google.com/p/tortoisegit/wiki/ReleaseNotes',
+            regex:'Release [0-9]+(?:\.[0-9]+)*',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'downloadURL=http://tortoisegit.googlecode.com/files/TortoiseGit-#VERSION#-64bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'TortoiseHG-64':{
+        name:'TortoiseHG-64',
+        category:'Shell extention',
+        description:'Windows shell extension',
+        url:'http://tortoisehg.bitbucket.org/',
+        version:{
+            url:'http://tortoisehg.bitbucket.org/',
+            regex:'TortoiseHg ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://tortoisehg.bitbucket.org/download/index.html',
+		    regex:'http://bitbucket.org/tortoisehg/files/downloads/tortoisehg-[0-9]+(?:\.[0-9]+)+-hg-[0-9]+(?:\.[0-9]+)+-x64.msi',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'WindowsSystemControlCenter':{
+        name:'Windows System Control Center',
+        category:'Utilities',
+        description:'WSCC is a free, portable program that allows you to install, update, execute and organize the utilities from various system utility suites',
+        url:'url=http://www.kls-soft.com/wscc/downloads.php',
+        version:{
+            url:'http://www.kls-soft.com/wscc/index.php',
+		    regex:'Latest version:</font></strong> ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.kls-soft.com/downloads/wscc.zip',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'CamStudio':{
+        name:'CamStudio',
+        category:'Multimedia',
+        description:'Free streaming video software',
+        url:'url=http://camstudio.org/',
+        version:{
+            url:'http://camstudio.org/',
+            regex:'Latest Version</strong></span><strong>: CamStudio ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+			url:'http://softlayer.dl.sourceforge.net/project/camstudio/stable/CamStudio_Setup_v2.6b_r294_%28build_24Oct2010%29.exe',
+			regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        }, 'EMPTY':{
+        name:'',
+        category:'',
+        description:'',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+	'EMPTYEND':{
         name:'',
         category:'',
         description:'',
@@ -962,26 +1120,4 @@ catalog={
             regexpos:0
             }
         }
-    }
-	# 'VLC':{
-        # name:'VLC',
-        # category:'multimedia',
-        # description:'Multimedia player for files, DVD, Audio, CD, VCD and streaming products',
-        # url:'http://www.videolan.org/',
-        # version:{
-            # url:'http://www.videolan.org/',
-            # regex:'latestVersion  =([0-9]+(?:\.[0-9]+)+)',
-            # regexpos:0},
-        # download:{
-            # downloadtype:'directurl',
-            # url:'http://softlayer.dl.sourceforge.net/project/vlc/2.0.3/win32/vlc-2.0.3-win32.exe'},
-        # silentflags:'/verysilent',
-        # installversion:{
-            # querytype:'',
-            # key:'HKLM',
-            # subkey:'SOFTWARE\\',
-            # value:'',
-            # regex:'([0-9]+(?:\.[0-9]+)+)',
-            # regexpos:0
-            # }
-        # }
+	}
