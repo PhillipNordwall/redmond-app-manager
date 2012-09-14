@@ -698,7 +698,7 @@ catalog={
             regexpos:0
             }
         },
-        'CamStudioCodec':{
+    'CamStudioCodec':{
         name:'CamStudio Video Codec',
         category:'Multimedia',
         description:'The Codec for Camstudio',
@@ -938,7 +938,1117 @@ catalog={
             regexpos:0
             }
         },
-    'EMPTYEND':{
+    'LyX':{
+        name:'Lyx',
+        category:'Editor',
+        description:'Latex Editor',
+        url:'http://wiki.lyx.org/LyX/Welcome',
+        version:{
+            url:'http://wiki.lyx.org/Windows/Windows',
+            regex:'Current stable version: ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'ftp://ftp.lyx.org/pub/lyx/bin/##VERSION##/LyX-##VERSION##-Installer.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'R':{
+        name:'R',
+        category:'Programming',
+        description:'Statistical and Graphical Computing',
+        url:'http://cran.cs.wwu.edu/',
+        version:{
+            url:'http://www.r-project.org/main.shtml',
+            regex:'R version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://cran.cs.wwu.edu/bin/windows/base/R-##VERSION##-win.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Clisp':{
+        name:'Clisp',
+        category:'Programming',
+        description:'A GNU ANSI C Common Lisp',
+        url:'http://www.clisp.org/',
+        version:{
+            url:'http://sourceforge.net/projects/clisp/',
+            regex:'clisp\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/clisp/clisp/##VERSION##/clisp-##VERSION##-win32-mingw-big.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'PHP5NonThreadSafe':{
+        name:'PHP',
+        category:'Programming',
+        description:'A Great! Programming Language',
+        url:'http://windows.php.net',
+        version:{
+            url:'http://windows.php.net/download/',
+            regex:'PHP 5.4 \\(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://windows.php.net/downloads/releases/php-##VERSION##-nts-Win32-VC9-x86.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'PHP5ThreadSafe':{
+        name:'PHP',
+        category:'Programming',
+        description:'A Great! Programming Language',
+        url:'http://windows.php.net',
+        version:{
+            url:'http://windows.php.net/download/',
+            regex:'PHP 5.4 \\(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://windows.php.net/downloads/releases/php-##VERSION##-Win32-VC9-x86.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SMLNJ':{
+        name:'Standard ML New Jersey',
+        category:'Programming',
+        description:'A non Lazy Functional Programming Language',
+        url:'http://www.smlnj.org/',
+        version:{
+            url:'http://www.smlnj.org/dist/working/index.html',
+            regex:'<b>([0-9]+(?:\.[0-9]+)+)</b>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://smlnj.cs.uchicago.edu/dist/working/##VERSION##/smlnj.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+   'GPrologMSVC':{
+        name:'GNU Prolog (Microsoft Visual C Compiler)',
+        category:'Programming',
+        description:'GNU implementation of the declarative language Prolog',
+        url:'http://www.gprolog.org',
+        version:{
+            url:'http://www.gprolog.org/#download',
+            regex:'gprolog\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.gprolog.org/setup-gprolog-##VERSION##-msvc-x86.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'GPrologMinGW':{
+        name:'GNU Prolog (MinGW Compiler)',
+        category:'Programming',
+        description:'GNU implementation of the declarative language Prolog',
+        url:'http://www.gprolog.org',
+        version:{
+            url:'http://www.gprolog.org/#download',
+            regex:'gprolog\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.gprolog.org/setup-gprolog-##VERSION##-mingw-x86.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'GPrologMSVC64':{
+        name:'GNU Prolog (MSCV Compiler) 64 bit',
+        category:'Programming',
+        description:'GNU implementation of the declarative language Prolog',
+        url:'http://www.gprolog.org',
+        version:{
+            url:'http://www.gprolog.org/#download',
+            regex:'gprolog\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.gprolog.org/setup-gprolog-##VERSION##-msvc-x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'GPrologMinGW64':{
+        name:'GNU Prolog (MinGW Compiler) 64 bit',
+        category:'Programming',
+        description:'GNU implementation of the declarative language Prolog',
+        url:'http://www.gprolog.org',
+        version:{
+            url:'http://www.gprolog.org/#download',
+            regex:'gprolog\-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.gprolog.org/setup-gprolog-##VERSION##-mingw-x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Groovy':{
+        name:'Groovy',
+        category:'Programming',
+        description:'Dynamic Langauge for the JRE',
+        url:'http://groovy.codehaus.org/',
+        version:{
+            url:'http://groovy.codehaus.org/Download',
+            regex:'Groovy ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:2},
+        download:{
+            downloadtype:'directurl',
+            url:'http://dist.groovy.codehaus.org/distributions/groovy-binary-##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'LuaForWindows':{
+        name:'Lua For Windows',
+        category:'Programming',
+        description:'Installation of Lua for the Windows OS including many lua libraries',
+        url:'http://code.google.com/p/luaforwindows/',
+        version:{
+            url:'http://code.google.com/p/luaforwindows/',
+            regex:'Download Lua_V([0-9]+(?:[-|.][0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://luaforwindows.googlecode.com/files/LuaForWindows_v##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Wings3D':{
+        name:'Wings 3D',
+        category:'Multimedia',
+        description:'Wings 3D is an advanced subdivision modeler that is both powerful and easy to use',
+        url:'http://www.wings3d.com/index.php',
+        version:{
+            url:'http://www.wings3d.com/index.php',
+            regex:'Wings 3D Stable ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca3.dl.sourceforge.net/project/wings/wings/##VERSION##/wings-##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Synergy2':{
+        name:'Synergy 2',
+        category:'Utility',
+        description:'Screen Sharing Utility',
+        url:'http://synergy-foss.org/',
+        version:{
+            url:'http://synergy-foss.org/download/?list',
+            regex:'Latest release:</b> ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://synergy.googlecode.com/files/synergy-##VERSION##-Windows-x86.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Synergy2-64':{
+        name:'Synergy 2',
+        category:'Utility',
+        description:'Screen Sharing Utility',
+        url:'http://synergy-foss.org/',
+        version:{
+            url:'http://synergy-foss.org/download/?list',
+            regex:'Latest release:</b> ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://synergy.googlecode.com/files/synergy-##VERSION##-Windows-x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Doxygen':{
+        name:'Doxygen',
+        category:'Programming',
+        description:'Generate documentation from source code',
+        url:'http://www.stack.nl/~dimitri/doxygen/',
+        version:{
+            url:'http://www.stack.nl/~dimitri/doxygen/download.html',
+            regex:'doxygen\-([0-9]+(?:\.[0-9]+)+)\-setup.exe',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.stack.nl/pub/users/dimitri/doxygen-##VERSION##-setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Graphviz':{
+        name:'Graphviz',
+        category:'Utility',
+        description:'Graph and Digraph layout engine',
+        url:'http://www.graphviz.org',
+        version:{
+            url:'http://www.graphviz.org/Download_windows.php',
+            regex:'graphviz-([0-9]+(?:\.[0-9]+)+).msi',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.graphviz.org/pub/graphviz/stable/windows/graphviz-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'LeJOS':{
+        name:'LeJOS',
+        category:'Firmware',
+        description:'leJOS is replacement firmware for LEGO Mindstorms RCX and NXT bricks. Yes, you can program a LEGO robot with Java',
+        url:'http://sourceforge.net/projects/lejos/',
+        version:{
+            url:'http://sourceforge.net/projects/lejos/',
+            regex:'leJOS_NXJ_([0-9]+(?:\.[0-9]+)+(?:alpha|beta)(?:\-[0-9]+))',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://hivelocity.dl.sourceforge.net/project/lejos/lejos-NXJ/##VERSION##/leJOS_NXJ_##VERSION##_win32_setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+     'ODE':{
+        name:'Open Dynamics Engine',
+        category:'Simulation',
+        description:'An open source, high performance library for simulating rigid body dynamics',
+        url:'http://www.ode.org/',
+        version:{
+            url:'http://sourceforge.net/projects/opende/',
+            regex:'ode-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://softlayer.dl.sourceforge.net/project/opende/ODE/0.12/ode-##VERSION##.tar.bz2',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'UMLet':{
+        name:'UMLet',
+        category:'Utility',
+        description:'Free UML Tool for fast UML diagrams',
+        url:'http://www.umlet.com/',
+        version:{
+            url:'http://www.umlet.com/changes.htm',
+            regex:'UMLet ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.umlet.com/umlet_##UNDERSCOREVERSION##/umlet_##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Alice2':{
+        name:'Alice',
+        category:'Programming',
+        description:'An educational software that teaches students computer programming in a 3D Environment',
+        url:'http://www.alice.org/',
+        version:{
+            url:'http://www.alice.org/index.php?page=downloads/download_alice2.3',
+            regex:'Download Alice ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'www.alice.org/downloads/##VERSION##/Alice##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Alice2Textbook':{
+        name:'Alice',
+        category:'Programming',
+        description:'Alice 3D Modeling Plus Learning to Program with Alice',
+        url:'http://www.alice.org/',
+        version:{
+            url:'http://www.alice.org/index.php?page=downloads/download_alice2.3',
+            regex:'Download Alice ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'www.alice.org/downloads/##VERSION##/Alice##VERSION##b.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Alice3':{
+        name:'Alice',
+        category:'Programming',
+        description:'An educational software that teaches students computer programming in a 3D Environment',
+        url:'http://www.alice.org/',
+        version:{
+            url:'http://www.alice.org/index.php?page=downloads/download_alice3.1    ',
+            regex:'Complete-([0-9]+(?:\.[0-9]+)+)-windows.exe',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.alice.org/downloads/installers/Alice3Installer-Complete-##VERSION##-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Skype':{
+        name:'Skype',
+        category:'Chat',
+        description:'Peer to Peer Voice,Video,IM Client',
+        url:'http://www.skype.com',
+        version:{
+            url:'http://blogs.skype.com/garage/windows/',
+            regex:'Skype ([0-9]+(?:\.[0-9]+){2,}) for Windows(?!: Phone)',
+            regexpos:0
+            },
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.skype.com/ce0b222b5e04303dba1df2805ab1d5ed/SkypeSetup.exe',
+            regex:'',
+            regexpos:0
+            },
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+             subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SketchUp':{
+        name:'SketchUp',
+        category:'Modeling',
+        description:'Google 3d Modeling Program',
+        url:'http://www.sketchup.com/',
+        version:{
+            url:'http://www.sketchup.com/intl/en/download/gsu.html',
+            regex:'Download SketchUp ([0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://dl.google.com/sketchup/SketchUpWEN.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ViProlog':{
+        name:'Visual Prolog',
+        category:'Programming',
+        description:'Prolog that Targets Windows',
+        url:'http://www.visual-prolog.com/',
+        version:{
+            url:'http://www.visual-prolog.com/vip6/community/news.htm',
+            regex:'Build ([0-9]+) has been released',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.pdc.dk/vip/vippe/vip##VERSION##pe.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'ViProlog':{
+        name:'Visual Prolog',
+        category:'Programming',
+        description:'Prolog that Targets Windows',
+        url:'http://www.visual-prolog.com/',
+        version:{
+            url:'http://www.visual-prolog.com/vip6/community/news.htm',
+            regex:'Build ([0-9]+) has been released',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.pdc.dk/vip/vippe/vip##VERSION##pe.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    
+    'ActiveTcl':{
+        name:'ActiveTcl',
+        category:'Programming',
+        description:'Commerical Tcl Distribution',
+        url:'http://www.activestate.com/activetcl',
+        version:{
+            url:'http://www.activestate.com/activetcl/downloads',
+            regex:'<p>Download ActiveTcl ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.activestate.com/activetcl/downloads',
+            regex:'http://downloads.activestate.com/ActiveTcl/releases/[0-9]+(?:\.[0-9]+)+/ActiveTcl[0-9]+(?:\.[0-9]+)+-win32-ix86-threaded.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ActiveTcl-64':{
+        name:'ActiveTcl',
+        category:'Programming',
+        description:'Commerical Tcl Distribution',
+        url:'http://www.activestate.com/activetcl',
+        version:{
+            url:'http://www.activestate.com/activetcl/downloads',
+            regex:'<p>Download ActiveTcl ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.activestate.com/activetcl/downloads',
+            regex:'http://downloads.activestate.com/ActiveTcl/releases/[0-9]+(?:\.[0-9]+)+/ActiveTcl[0-9]+(?:\.[0-9]+)+-win32-x86_64-threaded.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'KinectSDK':{
+        name:'Kinect SDK',
+        category:'Programming',
+        description:'Source Development Kit for the Microsoft Kinect',
+        url:'research.microsoft.com/en-us/um/redmond/projects/kinectsdk/',
+        version:{
+            url:'http://www.microsoft.com/en-us/kinectforwindows/develop/developer-downloads.aspx',
+            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/0/B/C/0BC13867-7ECD-4AC8-9400-873FF267467D/KinectSDK-v##VERSION##-Setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'KinectToolkit':{
+        name:'Kinect for Windows Developer Toolkit',
+        category:'Programming',
+        description:'Contains source code samples, Kinect Studio, Face Tracking SDK, and other resources to simplify developing applications using the Kinect for Windows SDK',
+        url:'research.microsoft.com/en-us/um/redmond/projects/kinectsdk/',
+        version:{
+            url:'http://www.microsoft.com/en-us/kinectforwindows/develop/developer-downloads.aspx',
+            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:1},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/B/B/A/BBA5742E-8E6B-4C05-ADF2-B2F076DD7741/KinectDeveloperToolkit-v##VERSION##-Setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'VirtualDub':{
+        name:'VirtualDub',
+        category:'Utility',
+        description:'Video Capture and Processing Utility',
+        url:'http://virtualdub.sourceforge.net/',
+        version:{
+            url:'http://sourceforge.net/projects/virtualdub/files/virtualdub-win/',
+            regex:'/projects/virtualdub/files/virtualdub-win/([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://sourceforge.net/projects/virtualdub/files/latest/download?source=files',
+            regex:'(http://downloads.sourceforge.net/project/virtualdub/virtualdub-win/[0-9]+(?:\.[0-9]+)+/VirtualDub-[0-9]+(?:\.[0-9]+)+.zip[^"]*)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MicrosoftRoboticsStudio':{
+        name:'Mircosoft Robotics Studio',
+        category:'Programming',
+        description:'Robot Development Environment',
+        url:'http://www.microsoft.com/robotics/',
+        version:{
+            url:'http://www.microsoft.com/en-us/download/details.aspx?id=29081',
+            regex:'<span>([0-9]+(?:\.[0-9]+)+)</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://download.microsoft.com/download/7/7/B/77B9D6DD-8601-4C9B-A5A8-BD7E1D2D115E/Microsoft%20Robotics%20Developer%20Studio%204.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MysqlODBC':{
+        name:'Mysql Open  Database Connectivity',
+        category:'Database',
+        description:'ODBC Driver for Mysql',
+        url:'http://dev.mysql.com/downloads/connector/odbc',
+        version:{
+            url:'http://dev.mysql.com/downloads/connector/odbc',
+            regex:'Connector/ODBC ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://cdn.mysql.com/Downloads/Connector-ODBC/5.1/mysql-connector-odbc-##VERSION##-win32.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'MysqlODBC-64':{
+        name:'Mysql Open  Database Connectivity',
+        category:'Database',
+        description:'ODBC Driver for Mysql',
+        url:'http://dev.mysql.com/downloads/connector/odbc',
+        version:{
+            url:'http://dev.mysql.com/downloads/connector/odbc',
+            regex:'Connector/ODBC ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://cdn.mysql.com/Downloads/Connector-ODBC/5.1/mysql-connector-odbc-##VERSION##-winx64.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'TexnicCenter':{
+        name:'Texnic Center',
+        category:'Editor',
+        description:'Latex Editor',
+        url:'http://www.texniccenter.org/',
+        version:{
+            url:'http://sourceforge.net/projects/texniccenter/',
+            regex:'TXCSetup_([0-9]+(?:Stable)?(?:RC[0-9]+)?)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://sourceforge.net/projects/texniccenter/files/latest/download?source=files',
+            regex:'http://downloads.sourceforge.net/project/texniccenter/TeXnicCenter/.+/TXCSetup_[0-9]+(?:Stable)?(?:RC[0-9]+)?.exe[^"]*',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'HaskellPlatform':{
+        name:'The Haskell Platform',
+        category:'Programming',
+        description:'The Best Way To Program, Obv',
+        url:'http://hackage.haskell.org/platform/',
+        version:{
+            url:'http://hackage.haskell.org/platform/',
+            regex:'Current release: <a href="changelog.html">([0-9]+(?:\.[0-9]+)+)</a>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://lambda.haskell.org/platform/download/##VERSION##/HaskellPlatform-##VERSION##-setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'UnrealDevelopmentKit':{
+        name:'Unreal Development Kit',
+        category:'Programming',
+        description:'3D Game Environment',
+        url:'http://www.unrealengine.com/udk/',
+        version:{
+            url:'http://www.unrealengine.com/en/udk/downloads/',
+            regex:"((?:"+months+ ") [0-9]{4})",
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.unrealengine.com/en/udk/downloads/',
+            regex:'http://download.udk.com/UDKInstall-[0-9]+-[0-9]+-BETA[0-9].exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+
+    'Unity3d':{
+        name:'Unity Game Engine',
+        category:'Programming',
+        description:'Game Engine',
+        url:'http://unity3d.com',
+        version:{
+            url:'http://unity3d.com/unity/download/',
+            regex:'Download Unity ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://netstorage.unity3d.com/unity/UnitySetup-##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Ruby':{
+        name:'Ruby',
+        category:'Programming',
+        description:'A Programming Langauge that your roommate is always telling you about but you really do not care',
+        url:'http://www.ruby-lang.org',
+        version:{
+            url:'http://rubyinstaller.org/downloads/',
+            regex:'Ruby ([0-9]+(?:\.[0-9]+)+(?:-p[0-9]+))',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://rubyinstaller.org/downloads/',
+            regex:'http://rubyforge.org/frs/download.php/[0-9]+/rubyinstaller-[0-9]+(?:\.[0-9]+)+(?:-p[0-9]+).exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Uncrustify':{
+        name:'Uncrustify',
+        category:'Utility',
+        description:'Code Beautification Utility',
+        url:'http://uncrustify.sourceforge.net/',
+        version:{
+            url:'http://sourceforge.net/projects/uncrustify/',
+            regex:'uncrustify-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://hivelocity.dl.sourceforge.net/project/uncrustify/uncrustify/uncrustify-##VERSION##/uncrustify-##VERSION##-win32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    
+    'SQLiteDatabaseBrowser':{
+        name:'SQlite Database Browser',
+        category:'database',
+        description:'Graphical Sqlite Editor',
+        url:'http://sqlitebrowser.sourceforge.net/',
+        version:{
+            url:'http://sourceforge.net/projects/sqlitebrowser/',
+            regex:'sqlitebrowser_([0-9]+_[a-zA-Z]+[0-9]+)_win',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://hivelocity.dl.sourceforge.net/project/sqlitebrowser/sqlitebrowser2/.0%20beta1/sqlitebrowser_##VERSION##_win.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'CMake':{
+        name:'CMake',
+        category:'Programming',
+        description:'Cross Platform Make',
+        url:'http://www.cmake.org/',
+        version:{
+            url:'http://www.cmake.org/cmake/resources/software.html',
+            regex:'Latest Release \(([0-9]+(?:\.[0-9]+)+)\)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.cmake.org/cmake/resources/software.html',
+            regex:'http://www.cmake.org/files/v[0-9]+(?:\.[0-9]+)+/cmake-[0-9]+(?:\.[0-9]+)+-win32-x86.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'AviSynth':{
+        name:'AviSynth',
+        category:'Programming',
+        description:'Scripting langauge for non linear video editing',
+        url:'http://sourceforge.net/projects/avisynth2/',
+        version:{
+            url:'http://sourceforge.net/projects/avisynth2/files/',
+            regex:'Avisynth_([0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://iweb.dl.sourceforge.net/project/avisynth2/AviSynth%202.5/AviSynth%202.5.8/Avisynth_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Spin':{
+        name:'Sping',
+        category:'Programming',
+        description:'Formal Verification of Distributed Software Systems',
+        url:'spinroot.com/spin/whatispin.html',
+        version:{
+            url:'http://spinroot.com/spin/Bin/index.html',
+            regex:'Current Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://spinroot.com/spin/Bin/spin##DOTLESSVERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'XNAGameStudio':{
+        name:'XNA Game Studio',
+        category:'Programming',
+        description:'Xbox DevelopmentE nvironment',
+        url:'http://msdn.microsoft.com/en-us/aa937791.aspx',
+        version:{
+            url:'http://www.microsoft.com/en-us/download/details.aspx?id=23714',
+            regex:'<td class="col2"><span>([0-9]+(?:\.[0-9]+)+)</span></td>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/0/1/4/01483A18-289E-4779-BB5A-0A28DFE18BC5/XNAGS##DOTLESSVERSION##_setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+
+    'ENDEMPTY':{
         name:'',
         category:'',
         description:'',
