@@ -2,3 +2,4 @@ tags
 session*
 *.swp
 *~
+*.pyc
