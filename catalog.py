@@ -2094,20 +2094,20 @@ catalog={
             regexpos:0
             }
         },
-    """'Miktex':{
-        name:'Miktex',
-        category:'Editor',
-        description:'TeX derivation',
-        url:'http://miktex.org/',
+    'WindowsServer2003ResourceKitTools':{
+        name:'Windows Server 2003 Resource Kit Tools ',
+        category:'Utility',
+        description:'Manage AD',
+        url:'http://www.microsoft.com/en-us/download/details.aspx?id=17657',
         version:{
-            url:'http://miktex.org/',
-            regex:'<td align="right" valign="top">([0-9]+(?:\.[0-9]+)+)</td',
+            url:'http://www.microsoft.com/en-us/download/details.aspx?id=17657',
+            regex:'<span>([0-9]+(?:\.[0-9]+)+)</span>',
             regexpos:0},
         download:{
-            downloadtype:'pagesearch',
-            url:'http://ctan.mirrors.hoobly.com/systems/win32/miktex/setup/',
-            regex:'http://ctan.mirrors.hoobly.com/systems/win32/miktex/setup/basic-miktex-[0-9]+(?:\.[0-9]+)+.exe',
-            regexpos:1},
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/8/e/c/8ec3a7d8-05b4-440a-a71e-ca3ee25fe057/rktools.exe',
+            regex:'',
+            regexpos:0},
         silentflags:'/verysilent',
         installversion:{
             querytype:'',
@@ -2117,7 +2117,8 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
-        },"""
+        },
+    
     'ENDEMPTY':{
         name:'',
         category:'',
