@@ -13,11 +13,11 @@ key = 'key'
 subkey = 'subkey'
 value = 'value'
 querytype = "querytype"
-path = 'path'
 
 
 #####ROLE YOUR OWN CAPTURING GROUPS
 months="Janurary|February|March|April|May|June|July|August|September|October|November|December"
+abmonths="Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 alphabeta="Alpha|Beta|alpha|beta"
 
 
@@ -28,9 +28,6 @@ broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
 broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
-########### Camille's work list ###########################################
-#Windodws System Control Center == this one is zipped
-############################################################################
 catalog={
     'EMPTY':{
         name:'',
@@ -56,95 +53,6 @@ catalog={
             regexpos:0
             }
         },
-    'LibreOffice':{
-        name:'LibreOffice',
-        category:'Editors and Viewers',
-        description:'Ffree, libre and open source personal productivity suite.',
-        url:'http://www.libreoffice.org/',
-        version:{
-            url:'http://www.libreoffice.org/download/',
-            regex:'version ([0-9]+(?:\.[0-9]+)+), English',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://download.documentfoundation.org/libreoffice/stable/##VERSION##/win/x86/LibO_##VERSION##_Win_x86_install_multi.msi'},
-        silentflags:'/quiet',
-        installversion:{
-            querytype:'regkey',
-            key:'HKLM',
-            subkey:'SOFTWARE\\Wow6432Node\\LibreOffice\\LibreOffice',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:-1
-            }
-        },
-    'Tightvncviewer':{
-        name:'TightVNCViewer',
-        category:'Internet Tools',
-        description:'TightVNC is a free remote control software package.',
-        url:'http://www.tightvnc.com/',
-        version:{
-            url:'http://www.tightvnc.com/download.html',
-            regex:'Download TightVNC Version ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://www.tightvnc.com/download/##VERSION##/tightvnc-##VERSION##-setup-64bit.msi',
-            regex:'',
-            regexpos:0},
-        silentflags:'/quiet',
-        installversion:{
-            querytype:'regval',
-            key:'HKLM',
-            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TightVNC',
-            value:'DisplayVersion',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-    'Emacs':{
-        name:'Emacs',
-        category:'Editors and Viewers',
-        description:'GNU Emacs is an extensible, customizable text editor and more.',
-        url:'http://www.gnu.org/software/emacs/',
-        version:{
-            url:'http://www.gnu.org/software/emacs/',
-            regex:'The current stable release is ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-##VERSION##-bin-i386.zip'},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'filepathname',
-            path:'c:\\Program Files (x86)\\',
-            regex:'Emacs ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-    'Git':{
-        name:'Git for Windows',
-        category:'Programming Tools',
-        description:'Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.',
-        url:'http://git-scm.com/',
-        version:{
-            url:'http://git-scm.com/download/win',
-            regex:'version <strong>([0-9]+(?:\.[0-9]+)+)</strong> ',
-            regexpos:0},
-        download:{
-            downloadtype:'pagesearch',
-            url:'http://git-scm.com/download/win',
-            regex:'a href="(.*[0-9]+(?:\.[0-9]+)+.*.exe)',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'regval',
-            key:'HKLM',
-            subkey:'SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Git_is1',
-            value:'DisplayVersion',
-            regex:'([0-9]+(?:\.[0-9]+)+).*',
-            regexpos:0
-            }
-        },    
     'AdobeReader':{
         name:'AdobeReader',
         category:'Editors and Viewers',
@@ -446,28 +354,6 @@ catalog={
             url:'http://aihdownload.adobe.com/bin/live/install_flashplayer11x32_mssd_aih.exe'},
         silentflags:'/verysilent',
         installversion:{    
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-    'Pidgin':{
-        name:'Pidgin',
-        category:'Internet tool',
-        description:'Universal chat program ',
-        url:'http://pidgin.im/',
-        version:{
-            url:'http://pidgin.im/',
-            regex:'<span class="number">([0-9]+(?:\.[0-9]+)+)</span>',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://voxel.dl.sourceforge.net/project/pidgin/Pidgin/##VERSION##/pidgin-##VERSION##.exe'},
-        silentflags:'/verysilent',
-        installversion:{
             querytype:'',
             key:'HKLM',
             subkey:'SOFTWARE\\',
@@ -2040,138 +1926,20 @@ catalog={
             regexpos:0
             }
         },
-	    'VLC':{
-        name:'VLC',
-        category:'multimedia',
-        description:'Multimedia player for files, DVD, Audio, CD, VCD and streaming products',
-        url:'http://www.videolan.org/',
-        version:{
-            url:'http://www.videolan.org/',
-            regex:'var latestVersion  = \'([0-9]+(?:\.[0-9]+)+)\'',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://voxel.dl.sourceforge.net/project/vlc/##VERSION##/win32/vlc-##VERSION##-win32.exe',
-            regex:'',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-		'XEmacs':{
-        name:'XEmacs',
-        category:'Editor',
-        description:'XEmacs',
-        url:'http://www.xemacs.org/Download/index.html',
-        version:{
-            url:'http://www.xemacs.org/Download/win32/index.html#InnoSetup-Stable-Download',
-            regex:'XEmacs ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://ftp.xemacs.org/pub/xemacs/binaries/win32/InnoSetup/XEmacs_Setup_##VERSION##.exe',
-            regex:'',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-		'TortoiseGit-x64':{
-        name:'TortoiseGit-x64',
-        category:'Version Controle',
-        description:'Version Controle',
-        url:'http://code.google.com/p/tortoisegit/',
-        version:{
-            url:'http://code.google.com/p/tortoisegit/wiki/ReleaseNotes',
-            regex:'Release [0-9]+(?:\.[0-9]+)*',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'downloadURL=http://tortoisegit.googlecode.com/files/TortoiseGit-#VERSION#-64bit.msi',
-            regex:'',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-		'TortoiseHG-64':{
-        name:'TortoiseHG-64',
-        category:'Shell extention',
-        description:'Windows shell extension',
-        url:'http://tortoisehg.bitbucket.org/',
-        version:{
-            url:'http://tortoisehg.bitbucket.org/',
-            regex:'TortoiseHg ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'pagesearch',
-            url:'http://tortoisehg.bitbucket.org/download/index.html',
-		    regex:'http://bitbucket.org/tortoisehg/files/downloads/tortoisehg-[0-9]+(?:\.[0-9]+)+-hg-[0-9]+(?:\.[0-9]+)+-x64.msi',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-		'WindowsSystemControlCenter':{
-        name:'Windows System Control Center',
-        category:'Utilities',
-        description:'WSCC is a free, portable program that allows you to install, update, execute and organize the utilities from various system utility suites',
-        url:'url=http://www.kls-soft.com/wscc/downloads.php',
-        version:{
-            url:'http://www.kls-soft.com/wscc/index.php',
-		    regex:'Latest version:</font></strong> ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://www.kls-soft.com/downloads/wscc.zip',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
-		'CamStudio':{
-        name:'CamStudio',
+    'Iview':{
+        name:'irfanview',
         category:'Multimedia',
-        description:'Free streaming video software',
-        url:'url=http://camstudio.org/',
+        description:'Graphics View',
+        url:'http://www.irfanview.com/',
         version:{
-            url:'http://camstudio.org/',
-            regex:'Latest Version</strong></span><strong>: CamStudio ([0-9]+(?:\.[0-9]+)+)',
+            url:'http://download.cnet.com/IrfanView/3000-2192_4-10021962.html?part=dl-IrfanView&subj=dl&tag=button',
+            regex:'<dd class="version">([0-9]+(?:\.[0-9]+)+)</dd>',
             regexpos:0},
         download:{
             downloadtype:'directurl',
-			url:'http://softlayer.dl.sourceforge.net/project/camstudio/stable/CamStudio_Setup_v2.6b_r294_%28build_24Oct2010%29.exe',
-			regexpos:0},
+            url:'http://software-files-a.cnet.com/s/software/12/48/66/01/iview##DOTLESSVERSION##_setup.exe',
+            regex:'',
+            regexpos:0},
         silentflags:'/verysilent',
         installversion:{
             querytype:'',
@@ -2182,19 +1950,164 @@ catalog={
             regexpos:0
             }
         },
-    'ENDEMPTY':{
-        name:'',        category:'',
-        description:'',
-        url:'',
+    'Hugs':{
+        name:'Hugs',
+        category:'Programming',
+        description:'The best programming that hugs you',
+        url:'http://cvs.haskell.org/Hugs',
         version:{
-            url:'',
+            url:'http://cvs.haskell.org/Hugs/pages/downloading.htm',
+            regex:'WinHugs-((?:'+abmonths+')[0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ndmitchell.googlecode.com/files/WinHugs-##VERSION##.exe',
             regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'StrawberryPerl':{
+        name:'Strawberry Perl',
+        category:'Programming',
+        description:'A programming language with a lot of operators',
+        url:'http://strawberryperl.com/',
+        version:{
+            url:'http://strawberryperl.com/',
+            regex:'Download Strawberry Perl ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'direct',
+            url:'http://strawberry-perl.googlecode.com/files/strawberry-perl-##VERSION##-32bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'StrawberryPerl-64':{
+        name:'Strawberry Perl',
+        category:'Programming',
+        description:'A programming language with a lot of operators',
+        url:'http://strawberryperl.com/',
+        version:{
+            url:'http://strawberryperl.com/',
+            regex:'Download Strawberry Perl ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://strawberry-perl.googlecode.com/files/strawberry-perl-##VERSION##-64bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            } 
+       },
+    'DXSDK':{
+        name:'DXSDK',
+        category:'Programming',
+        description:'Direct X SDK',
+        url:'http://www.microsoft.com/en-us/download/details.aspx?id=6812',
+        version:{
+            url:'http://www.microsoft.com/en-us/download/details.aspx?id=6812',
+            regex:'<span>DXSDK_((?:'+abmonths+')[0-9]+).exe</span>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Povray':{
+        name:'Povray',
+        category:'Graphics',
+        description:'Persistence of Vision Raytracer',
+        url:'http://www.povray.org/',
+        version:{
+            url:'http://www.povray.org/download/',
+            regex:'The current official version of POV-Ray is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Official/Windows/povwin##DOTLESSVERSION##-32bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Povray-64':{
+        name:'Povray',
+        category:'Graphics',
+        description:'Persistence of Vision Raytracer',
+        url:'http://www.povray.org/',
+        version:{
+            url:'http://www.povray.org/download/',
+            regex:'The current official version of POV-Ray is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Official/Windows/povwin##DOTLESSVERSION##-64bit.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    """'Miktex':{
+        name:'Miktex',
+        category:'Editor',
+        description:'TeX derivation',
+        url:'http://miktex.org/',
+        version:{
+            url:'http://miktex.org/',
+            regex:'<td align="right" valign="top">([0-9]+(?:\.[0-9]+)+)</td',
             regexpos:0},
         download:{
             downloadtype:'pagesearch',
-            url:'',
-            regex:'',
-            regexpos:0},
+            url:'http://ctan.mirrors.hoobly.com/systems/win32/miktex/setup/',
+            regex:'http://ctan.mirrors.hoobly.com/systems/win32/miktex/setup/basic-miktex-[0-9]+(?:\.[0-9]+)+.exe',
+            regexpos:1},
         silentflags:'/verysilent',
         installversion:{
             querytype:'',
@@ -2204,8 +2117,8 @@ catalog={
             regex:'([0-9]+(?:\.[0-9]+)+)',
             regexpos:0
             }
-        },
-	'EMPTYEND':{
+        },"""
+    'ENDEMPTY':{
         name:'',
         category:'',
         description:'',
@@ -2229,4 +2142,4 @@ catalog={
             regexpos:0
             }
         }
-	}
+     }
