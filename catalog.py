@@ -1,3 +1,4 @@
+# NOTE: Some descriptions are taken from an applications web site or from wikipedia.  Camille
 name = 'name'
 category = 'category'
 description = 'description'
@@ -29,7 +30,11 @@ broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-I
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 ########### Camille's work list ###########################################
-#Windodws System Control Center == this one is zipped
+#Windodws System Control Center == Zipped, may have problems installing
+#PdfCreator == See download URL.  It works but may cause future problems
+              #due to dashes in dashed version of number
+#Paint.Net == Zipped, may have problems installing
+#Jarnal == JAR file may have problems installing
 ############################################################################
 catalog={
     'EMPTY':{
@@ -44,6 +49,125 @@ catalog={
         download:{
             downloadtype:'pagesearch',
             url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'NASM':{
+        name:'NASM',
+        category:'Programming tool',
+        description:'an assembler and disassembler for the Intel x86 architecture.',
+        url:'http://www.nasm.us/',
+        version:{
+            url:'http://www.nasm.us/',
+            regex:'releasebuilds/([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.nasm.us/pub/nasm/releasebuilds/##VERSION##/nasm-##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'Jarnal':{
+        name:'Jarnal',
+        category:'Editor',
+        description:'Open-source cross-platform notetaking and sketching application similar to Windows Journal',
+        url:'http://jarnal.wikispaces.com/Downloads',
+        version:{
+            url:'http://jarnal.wikispaces.com/Downloads',
+            regex:'current version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://levine.sscnet.ucla.edu/general/software/tc1000/jarnal-public.jar',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'DIA':{
+        name:'Dia Diagram Editor',
+        category:'Editor',
+        description:'',
+        url:'Dia is a program to draw structured diagrams',
+        version:{
+            url:'http://dia-installer.de/',
+            regex:'win32-installer/([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca3.dl.sourceforge.net/project/dia-installer/dia-win32-installer/##VERSION##/dia-setup-##VERSION##-2-unsigned.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'Paint.Net':{
+        name:'Paint.Net',
+        category:'Editor',
+        description:'Proprietary freeware raster graphics editor',
+        url:'http://www.getpaint.net/download.html',
+        version:{
+            url:'http://www.getpaint.net/download.html',
+            regex:'size="2"><strong>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.dotpdn.com/files/Paint.NET.##VERSION##.Install.zip',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'PdfCreator':{
+        name:'PdfCreator',
+        category:'ulility',
+        description:'convert documents to pdf',
+        url:'http://www.pdfforge.org/',
+        version:{
+            url:'http://www.pdfforge.org/pdfcreator',
+            regex:'Download PDFCreator ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://yellow.download.pdfforge.org/pdfcreator/##VERSION##/PDFCreator-##UNDERSCOREVERSION##_setup.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
