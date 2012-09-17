@@ -95,6 +95,30 @@ catalog={
             regexpos:0
             }
         },
+    'GPG4Win':{
+        name:'GPG4Win',
+        category:'Encryption',
+        description:'installation package with software tools and manuals for email and file encryption',
+        url:'http://www.gpg4win.org/index.html',
+        version:{
+            url:'http://www.gpg4win.org/index.html',
+            regex:'Download<br />Gpg4win ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://files.gpg4win.org/gpg4win-##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'Cygwin':{
         name:'Cygwin',
         category:'',
