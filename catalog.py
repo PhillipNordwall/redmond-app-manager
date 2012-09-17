@@ -26,8 +26,39 @@ alphabeta="Alpha|Beta|alpha|beta"
 #####
 minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
     '7-Zip', 'Firefox', 'Scribus' ]
+
+full_list=['Git', 'Mscgen', 'XNAGameStudio', 'ActiveTcl-64',
+           'GPrologMSVC', 'Notepad++', 'Synergy2', 'Pidgin',
+           'WindowsSystemControlCenter', 'Flash-Firefox',
+           'Alice2Textbook', 'MySQLJDBC', 'WindowsServer2003ResourceKitTools',
+           'GPrologMinGW', 'Ghostscript', 'LyX', 'SketchUp',
+           'Synergy2-64', 'PHP5ThreadSafe', 'CamStudioCodec',
+           'VirtualBox', 'AdobeReader', 'Flash-InternetExplorer',
+           'PHP5NonThreadSafe', 'TortoiseHG-64', 'Skype',
+           'SDL-64', 'Iview', 'StrawberryPerl-64', 'SDL',
+           'rwhod', 'MicrosoftRoboticsStudio', 'Clisp',
+           'Paint.Net', 'Boost', 'EMPTY', 'TexnicCenter',
+           'VLC', 'Putty', 'PdfCreator', 'LibreOffice',
+           'Ruby', 'Python3', 'Python2', 'Unity3d', 'Doxygen',
+           'Thunderbird', 'Love2d', 'StrawberryPerl', 'CMake',
+           'Alice2', 'Alice3', 'Eric', 'Inkscape', 'Gimp',
+           'ImageMagick', 'MyPaint', 'Jarnal', 'Emacs', 'Windif',
+           'Hugs', 'WinSCP', 'KinectSDK', 'LuaForWindows',
+           'AviSynth', 'ArgoUML', 'Squeak', 'ODE', 'ScreenRecorder',
+           'SMPlayer', 'MysqlODBC', 'Scribus', 'TrueCrypt', 'Audacity',
+           'R', 'VioletUML', 'Firefox', 'HaskellPlatform', 'ActiveTcl',
+           'GPrologMSVC64', 'Graphviz', 'KinectToolkit', 'CamStudio',
+           'GSview 32bit', 'MySQLWorkbench', 'DIA', 'MysqlODBC-64',
+           'LeagueOfLegends', 'Povray', 'MyPaint-64', 'SQLiteDatabaseBrowser',
+           'XEmacs', 'UMLet', 'SMLNJ', 'Povray-64', 'Uncrustify', 'Spin',
+           'InteractiveC', 'Groovy', 'TortoiseGit-x64', 'LeJOS', 'Love2d-64',
+           'GVim', 'GPrologMinGW64', 'VirtualDub', '7-Zip', 'Wings3D', 'DXSDK',
+           'Blender-64', 'Tightvncviewer', 'Netbeans', 'Scratch', 'ViProlog',
+           'SysinternalsSuite', 'UnrealDevelopmentKit', 'Inform7', 'Racket',
+           'NASM', 'SmartGit', 'Blender']
+
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
-broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
+broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer,OracleInstantBasic']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 broken_list = ['TortoiseSVN-64']
 
@@ -2633,6 +2664,513 @@ catalog={
             regexpos:0
             }
         },
+    
+    'LeagueOfLegends':{
+        name:'League Of Legends',
+        category:'Games',
+        description:'HUEHUEHUEHUEHUEHUEHUEHUEHUEHUE',
+        url:'pvp.net',
+        version:{
+            url:'http://na.leagueoflegends.com/news/release-notes',
+            regex:'League of Legends v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Eric':{
+        name:'Eric Integrated Development Environment',
+        category:'Programming',
+        description:'Python3 IDE',
+        url:'http://sourceforge.net/projects/eric-ide/',
+        version:{
+            url:'http://sourceforge.net/projects/eric-ide/',
+            regex:'eric5-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-sea2.dl.sourceforge.net/project/eric-ide/eric5/stable/##VERSION##/eric5-##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Scratch':{
+        name:'Scratch',
+        category:'Programming',
+        description:'Graphical Programming Language',
+        url:'http://scratch.mit.edu/',
+        version:{
+            url:'http://scratch.mit.edu/download',
+            regex:'Scratch ([0-9]+(?:\.[0-9]+)+) Download',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.scratch.mit.edu/ScratchInstaller##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Inform7':{
+        name:'Inform7',
+        category:'Programming',
+        description:'Interactive Fiction Programming CYOA',
+        url:'http://inform7.com/',
+        version:{
+            url:'http://inform7.com/download/',
+            regex:'Inform release ([A-Z0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://inform7.com/download/content/##VERSION##/I7_##VERSION##_Windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Windif':{
+        name:'Windif',
+        category:'Utility',
+        description:'Diff in Windows    ',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Love2d':{
+        name:'Love2d',
+        category:'Programming',
+        description:'Lua 2d engine',
+        url:'https://love2d.org/',
+        version:{
+            url:'https://love2d.org/',
+            regex:'([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'https://bitbucket.org/rude/love/downloads/love-##VERSION##-win-x86.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Love2d-64':{
+        name:'Love2d',
+        category:'Programming',
+        description:'Lua 2d engine',
+        url:'https://love2d.org/',
+        version:{
+            url:'https://love2d.org/',
+            regex:'([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'https://bitbucket.org/rude/love/downloads/love-##VERSION##-win-x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SDL':{
+        name:'Simple DirectMedia Layer',
+        category:'Programming',
+        description:'Low Level Peripheral Library',
+        url:'http://www.libsdl.org/index.php',
+        version:{
+            url:'http://www.libsdl.org/download-1.2.php',
+            regex:'SDL version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.libsdl.org/release/SDL-##VERSION##-win32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SDL-64':{
+        name:'Simple DirectMedia Layer',
+        category:'Programming',
+        description:'Low Level Peripheral Library',
+        url:'http://www.libsdl.org/index.php',
+        version:{
+            url:'http://www.libsdl.org/download-1.2.php',
+            regex:'SDL version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.libsdl.org/release/SDL-##VERSION##-win32-x64.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+##    'OracleInstantBasic':{
+##        name:'Oracal Instant Client',
+##        category:'Database',
+##        description:'Run Oracle Apps without having Oracle Client',
+##        url:'http://www.oracle.com/technetwork/database/features/instant-client/index-100365.html',
+##        version:{
+##            url:'http://www.oracle.com/technetwork/topics/winsoft-085727.html',
+##            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+##            regexpos:0},
+##        download:{
+##            downloadtype:'directurl',
+##            url:'',
+##            regex:'',
+##            regexpos:0},
+##        silentflags:'/verysilent',
+##        installversion:{
+##            querytype:'',
+##            key:'HKLM',
+##            subkey:'SOFTWARE\\',
+##            value:'',
+##            regex:'([0-9]+(?:\.[0-9]+)+)',
+##            regexpos:0
+##            }
+##        },
+##    'OracleInstantBasic-64':{
+##        name:'',
+##        category:'',
+##        description:'',
+##        url:'',
+##        version:{
+##            url:'',
+##            regex:'',
+##            regexpos:0},
+##        download:{
+##            downloadtype:'pagesearch',
+##            url:'',
+##            regex:'',
+##            regexpos:0},
+##        silentflags:'/verysilent',
+##        installversion:{
+##            querytype:'',
+##            key:'HKLM',
+##            subkey:'SOFTWARE\\',
+##            value:'',
+##            regex:'([0-9]+(?:\.[0-9]+)+)',
+##            regexpos:0
+##            }
+##        },
+    'ArgoUML':{
+        name:'Argo UML',
+        category:'Utilities',
+        description:'UML Drawing',
+        url:'http://argouml-downloads.tigris.org/',
+        version:{
+            url:'http://argouml-downloads.tigris.org/',
+            regex:'Release ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://argouml-downloads.tigris.org/nonav/argouml-##VERSION##/ArgoUML-##VERSION##-setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'InteractiveC':{
+        name:'Interactive C',
+        category:'Programming',
+        description:'C Interpreter',
+        url:'http://www.botball.org/ic',
+        version:{
+            url:'http://www.botball.org/ic',
+            regex:'Vista: ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.botball.org/sites/default/files/page-files/77/InteractiveC_##UNDERSCOREVERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SMPlayer':{
+        name:'MPlayer',
+        category:'Multimedia',
+        description:'Movie Player',
+        url:'http://sourceforge.net/projects/smplayer/',
+        version:{
+            url:'http://sourceforge.net/projects/smplayer/',
+            regex:'smplayer-([0-9]+(?:\.[0-9]+)+)-win32.exe',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/smplayer/SMPlayer/##VERSION##/smplayer-##VERSION##-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Boost':{
+        name:'Boost',
+        category:'Programming',
+        description:'Fast C++ SDL',
+        url:'http://www.boost.org',
+        version:{
+            url:'http://www.boost.org/users/download/',
+            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca2.dl.sourceforge.net/project/boost/boost/##VERSION##/boost_##UNDERSCOREVERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MyPaint':{
+        name:'MyPaint',
+        category:'Multimedia',
+        description:'Open Source Graphics Editor',
+        url:'http://mypaint.intilinux.com/',
+        version:{
+            url:'http://mypaint.intilinux.com/?page_id=6',
+            regex:'mypaint-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.gna.org/mypaint/mypaint-##VERSION##-win32-installer.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'MyPaint-64':{
+        name:'MyPaint',
+        category:'Multimedia',
+        description:'Open Source Graphics Editor',
+        url:'http://mypaint.intilinux.com/',
+        version:{
+            url:'http://mypaint.intilinux.com/?page_id=6',
+            regex:'mypaint-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.gna.org/mypaint/mypaint-##VERSION##_win64_installer.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Blender':{
+        name:'Blender',
+        category:'Multipedia',
+        description:'3d Modeling',
+        url:'http://www.blender.org',
+        version:{
+            url:'http://www.blender.org/download/get-blender/',
+            regex:'Blender ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:2},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://download.blender.org/release/Blender##VERSION##/blender-##VERSION##-release-windows32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Blender-64':{
+        name:'Blender',
+        category:'Multipedia',
+        description:'3d Modeling',
+        url:'http://www.blender.org',
+        version:{
+            url:'http://www.blender.org/download/get-blender/',
+            regex:'Blender ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:2},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://download.blender.org/release/Blender##VERSION##/blender-##VERSION##-release-windows64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Mscgen':{
+        name:'Mscgen',
+        category:'Utility',
+        description:'Message Seqence Chart Visualizer',
+        url:'http://www.mcternan.me.uk/mscgen/',
+        version:{
+            url:'http://www.mcternan.me.uk/mscgen/',
+            regex:'current version is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.mcternan.me.uk/mscgen/software/mscgen_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Audacity':{
+        name:'Audacity',
+        category:'Multimedia',
+        description:'Audio Editor',
+        url:'http://audacity.sourceforge.net',
+        version:{
+            url:'http://audacity.sourceforge.net',
+            regex:'Audacity ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://audacity.googlecode.com/files/audacity-win-##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    
+    
     'EMPTYEND':{
         name:'',
         category:'',
