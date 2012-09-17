@@ -62,9 +62,33 @@ catalog={
             regexpos:0
             }
         },
+		'GLUT':{
+        name:'GLUT OpenGL Utility Toolkit ',
+        category:'Utility',
+        description:'A window system independent toolkit for writing OpenGL programs',
+        url:'',
+        version:{
+            url:'http://www.opengl.org/resources/libraries/glut/',
+            regex:'The current source code distribution is GLUT ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.opengl.org/resources/libraries/glut/glut##DOTLESSVERSION##data.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
 		'SciLab-64':{
         name:'SciLab',
-        category:'Ulility',
+        category:'Utility',
         description:'Free Open Source Software for Numerical Computation',
         url:'http://www.scilab.org/products/scilab/download',
         version:{
