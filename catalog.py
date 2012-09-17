@@ -62,6 +62,30 @@ catalog={
             regexpos:0
             }
         },
+		'GHC':{
+        name:'Glasgow Haskell compiler',
+        category:'Programming',
+        description:'Cross-platform environment for the writing and testing of Haskell code',
+        url:'http://www.haskell.org/ghc/download',
+        version:{
+            url:'http://www.haskell.org/ghc/download',
+            regex:'Current Stable Release \(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.haskell.org/ghc/dist/##VERSION##/ghc-##VERSION##-i386-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
 		'Unicon':{
         name:'Unicon',
         category:'Programming',
