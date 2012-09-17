@@ -167,7 +167,7 @@ catalog={
             # regexpos:0
             # }
         # },
-		'GHC':{
+        'GHC':{
         name:'Glasgow Haskell compiler',
         category:'Programming',
         description:'Cross-platform environment for the writing and testing of Haskell code',
@@ -191,7 +191,7 @@ catalog={
             regexpos:0
             }
         },
-		'Unicon':{
+        'Unicon':{
         name:'Unicon',
         category:'Programming',
         description:'Unified exteded dialect of Icon',
@@ -215,7 +215,7 @@ catalog={
             regexpos:0
             }
         },
-		'Scala':{
+        'Scala':{
         name:'Scala',
         category:'Programming',
         description:'Scala is a general purpose programming language.',
@@ -239,7 +239,7 @@ catalog={
             regexpos:0
             }
         },
-		'GLUT':{
+        'GLUT':{
         name:'GLUT OpenGL Utility Toolkit ',
         category:'Utility',
         description:'A window system independent toolkit for writing OpenGL programs',
@@ -263,7 +263,7 @@ catalog={
             regexpos:0
             }
         },
-		'SciLab-64':{
+        'SciLab-64':{
         name:'SciLab',
         category:'Utility',
         description:'Free Open Source Software for Numerical Computation',
@@ -287,7 +287,7 @@ catalog={
             regexpos:0
             }
         },
-		'Maxima':{
+        'Maxima':{
         name:'Maxima',
         category:'Utility',
         description:'Computer algebra system',
@@ -438,7 +438,8 @@ catalog={
             url:'http://levine.sscnet.ucla.edu/general/software/tc1000/jarnal-public.jar',
             regex:'',
             regexpos:0},
-        silentflags:'/verysilent',
+        silentfl        'Maxima':{
+ags:'/verysilent',
         installversion:{
             querytype:'',
             key:'HKLM',
