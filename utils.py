@@ -216,6 +216,7 @@ def downloadLatest(d, location='downloads\\', overwrite=False):
         pathname = urllib2.url2pathname(parsed.path)
         filename = pathname.split("\\")[-1]
         newfileloc = location + name + '---' + version + '---' + filename
+        print "Downloading: %s" % newfileloc
         # if the file doesn't exist or we allow overwriteing write the file
         if overwrite or not os.path.exists(newfileloc):
             #XXX This needs to be modified to be done in blocks.
@@ -403,6 +404,7 @@ def installPackage(d, location):
     @return The value returned by the installer
     """
     try:
+        print "installing: %s" % location
         # no silent flags for now 
 		#ret = os.system('"' + location + '" ' + d['silentflags'])
         ret = os.system('"' + location + '" ')
