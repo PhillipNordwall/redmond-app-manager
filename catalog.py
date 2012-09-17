@@ -29,6 +29,7 @@ minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
 broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
+broken_list = ['TortoiseSVN-64']
 
 ########### Camille's work list ###########################################
 #Windodws System Control Center == Zipped, may have problems installing
@@ -151,6 +152,54 @@ catalog={
             regexpos:0
             }
         },    
+#    'TortoiseSVN-64':{
+#        name:'TortoiseSVN',
+#        category:'Programming Tools',
+#        description:'TortoiseSVN is an Apache Subversion client, implemented as a windows shell extension.',
+#        url:'http://tortoisesvn.net/',
+#        version:{
+#            url:'http://tortoisesvn.net/downloads.html',
+#            regex:'The current version is ([0-9]+(?:\.[0-9]+)+)',
+#            regexpos:0},
+#        download:{
+#            downloadtype:'pagesearch',
+#            url:'http://sourceforge.net/projects/tortoisesvn/files/latest/download',
+#            regex:'url=(http://downloads.sourceforge.net/project/tortoisesvn/[0-9]+(?:\.[0-9]+)+/Application/TortoiseSVN-[0-9]+(?:\.[0-9]+)+-x64[^"]*)"',
+#            regexpos:0},
+#        silentflags:'/verysilent',
+#        installversion:{
+#            querytype:'',
+#            key:'HKLM',
+#            subkey:'SOFTWARE\\',
+#            value:'',
+#            regex:'([0-9]+(?:\.[0-9]+)+)',
+#            regexpos:0
+#            }
+#        },
+    'EMPTY':{
+        name:'',
+        category:'',
+        description:'',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'NASM':{
         name:'NASM',
         category:'Programming tool',
