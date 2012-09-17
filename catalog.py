@@ -67,6 +67,7 @@ broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
               #due to dashes in dashed version of number
 #Paint.Net == Zipped, may have problems installing
 #Jarnal == JAR file may have problems installing
+#Lazarus == code commented out due to problems with source forge
 ############################################################################
 catalog={
     'EMPTY':{
@@ -81,6 +82,30 @@ catalog={
         download:{
             downloadtype:'pagesearch',
             url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'TortoiseSVN':{
+        name:'TortoiseSVN',
+        category:'Version Controle',
+        description:'Subversion client implemented as a Microsoft Windows shell extension',
+        url:'http://tortoisesvn.net/downloads.html',
+        version:{
+            url:'http://tortoisesvn.net/downloads.html',
+            regex:'current version is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-sea2.dl.sourceforge.net/project/tortoisesvn/1.7.9/Application/TortoiseSVN-1.7.9.23248-win32-svn-1.7.6.msi',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
@@ -130,7 +155,6 @@ catalog={
             downloadtype:'pagesearch',
             url:'http://www.vtk.org/VTK/resources/software.html#latest',
             regex:'http://www.vtk.org/files/release/[0-9]+(?:\.[0-9]+)+/vtk-[0-9]+(?:\.[0-9]+)+-win32-x86.exe',
-               #   http://www.vtk.org/files/release/5.10/vtk-5.10.0-win32-x86.exe
 			regexpos:0},
         silentflags:'/verysilent',
         installversion:{
