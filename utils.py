@@ -403,7 +403,9 @@ def installPackage(d, location):
     @return The value returned by the installer
     """
     try:
-        ret = os.system('"' + location + '" ' + d['silentflags'])
+        # no silent flags for now 
+		#ret = os.system('"' + location + '" ' + d['silentflags'])
+        ret = os.system('"' + location + '" ')
     except:
         print 'unknown error running installPackage(%s, %s)' %(d, location)
     else:
@@ -510,7 +512,7 @@ def getCollWebVersions(catalog, collection):
 def main(argv):
     
     if len(argv)<3:
-        print "Usage:python utils.py [version|localversion|fetch] {packagename|all}"
+        print "Usage:python utils.py [version|localversion|fetch|install] {packagename|all}"
         return -1
 
     
@@ -519,6 +521,11 @@ def main(argv):
         print getWebVersion(package)
     elif argv[1]=="localversion":
         print getInstalledVersion(package)
+    elif argv[1]=="install":
+        if argv[2]=="all":
+            installColl(catalog.catalog, catalog.catalog.keys())
+        else:
+            downloadAndInstallLatest(catalog.catalog[argv[2]])
     elif argv[1]=="fetch":
         if argv[2]=="all":
             for i in catalog.catalog:
