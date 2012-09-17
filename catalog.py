@@ -95,6 +95,30 @@ catalog={
             regexpos:0
             }
         },
+    'ImgBurn':{
+        name:'ImgBurn',
+        category:'Multimedia',
+        description:'allows the recording of many types of CD/DVD images to recordable media',
+        url:'http://www.imgburn.com/index.php?act=download',
+        version:{
+            url:'http://www.imgburn.com/index.php?act=download',
+            regex:'Current version: ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.imgburn.com/SetupImgBurn_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'GPG4Win':{
         name:'GPG4Win',
         category:'Encryption',
