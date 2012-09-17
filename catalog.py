@@ -62,6 +62,30 @@ catalog={
             regexpos:0
             }
         },
+		'Unicon':{
+        name:'Unicon',
+        category:'Programming',
+        description:'Unified exteded dialect of Icon',
+        url:'http://unicon.sourceforge.net/index.html',
+        version:{
+            url:'http://sourceforge.net/projects/unicon/files/',
+            regex:'setup-unicon_([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://iweb.dl.sourceforge.net/project/unicon/setup-unicon_12.1.0_threads%2832-bit%29.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
 		'Scala':{
         name:'Scala',
         category:'Programming',
