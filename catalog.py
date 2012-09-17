@@ -131,7 +131,7 @@ catalog={
             regexpos:-1
             }
         },
-    'Tightvncviewer':{
+    'Tightvncviewer-64':{
         name:'TightVNCViewer',
         category:'Internet Tools',
         description:'TightVNC is a free remote control software package.',
