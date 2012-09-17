@@ -26,8 +26,42 @@ alphabeta="Alpha|Beta|alpha|beta"
 #####
 minimal_list = [ 'Ghostscript', 'GSview 32bit', 'Gimp', 'ImageMagick',
     '7-Zip', 'Firefox', 'Scribus' ]
+
+full_list=['Git', 'XNAGameStudio', 'ActiveTcl-64', 'GPrologMSVC',
+           'Notepad++', 'Synergy2', 'Pidgin',
+           'WindowsSystemControlCenter', 'Flash-Firefox',
+           'Alice2Textbook', 'MySQLJDBC',
+           'WindowsServer2003ResourceKitTools',
+           'GPrologMinGW', 'Ghostscript', 'LyX', 'SketchUp',
+           'Synergy2-64', 'PHP5ThreadSafe', 'CamStudioCodec',
+           'VirtualBox', 'AdobeReader', 'Flash-InternetExplorer',
+           'PHP5NonThreadSafe', 'TortoiseHG-64', 'Skype', 'SDL-64',
+           'Iview', 'StrawberryPerl-64', 'SDL', 'rwhod',
+           'MicrosoftRoboticsStudio', 'Clisp', 'Paint.Net',
+           'EMPTY', 'TexnicCenter', 'VLC', 'Putty',
+           'PdfCreator', 'LibreOffice', 'Ruby', 'Python3',
+           'Python2', 'Unity3d', 'Doxygen', 'Thunderbird',
+           'Love2d', 'OracleInstantBasic-64', 'StrawberryPerl',
+           'CMake', 'Alice2', 'Alice3', 'Eric', 'Inkscape',
+           'Gimp', 'ImageMagick', 'Jarnal', 'OracleInstantBasic',
+           'Emacs', 'Windif', 'Hugs', 'WinSCP', 'KinectSDK',
+           'LuaForWindows', 'AviSynth', 'Squeak', 'ODE',
+           'ScreenRecorder', 'MysqlODBC', 'Scribus', 'TrueCrypt',
+           'R', 'VioletUML', 'Firefox', 'HaskellPlatform',
+           'ActiveTcl', 'GPrologMSVC64', 'Graphviz',
+           'KinectToolkit', 'CamStudio', 'GSview 32bit',
+           'MySQLWorkbench', 'DIA', 'MysqlODBC-64',
+           'LeagueOfLegends', 'Povray', 'SQLiteDatabaseBrowser',
+           'XEmacs', 'UMLet', 'SMLNJ', 'Povray-64', 'Uncrustify',
+           'Spin', 'Groovy', 'TortoiseGit-x64', 'LeJOS', 'Love2d-64',
+           'GVim', 'GPrologMinGW64', 'VirtualDub', '7-Zip',
+           'Wings3D','DXSDK', 'Tightvncviewer', 'Netbeans',
+           'Scratch', 'ViProlog', 'SysinternalsSuite',
+           'UnrealDevelopmentKit', 'Inform7',
+           'Racket', 'NASM', 'SmartGit']
+
 broken_localversion_minimal_list = [ 'Gimp', 'AdobeReader' ]
-broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer']
+broken_download_minimal_list = [ 'Inkscape', 'TrueCrypt', 'AdobeReader','Flash-InternetExplorer,OracleInstantBasic']
 broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 
 ########### Camille's work list ###########################################
@@ -2584,6 +2618,272 @@ catalog={
             regexpos:0
             }
         },
+    
+    'LeagueOfLegends':{
+        name:'League Of Legends',
+        category:'Games',
+        description:'HUEHUEHUEHUEHUEHUEHUEHUEHUEHUE',
+        url:'pvp.net',
+        version:{
+            url:'http://na.leagueoflegends.com/news/release-notes',
+            regex:'League of Legends v([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Eric':{
+        name:'Eric Integrated Development Environment',
+        category:'Programming',
+        description:'Python3 IDE',
+        url:'http://sourceforge.net/projects/eric-ide/',
+        version:{
+            url:'http://sourceforge.net/projects/eric-ide/',
+            regex:'eric5-([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-sea2.dl.sourceforge.net/project/eric-ide/eric5/stable/##VERSION##/eric5-##VERSION##.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Scratch':{
+        name:'Scratch',
+        category:'Programming',
+        description:'Graphical Programming Language',
+        url:'http://scratch.mit.edu/',
+        version:{
+            url:'http://scratch.mit.edu/download',
+            regex:'Scratch ([0-9]+(?:\.[0-9]+)+) Download',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.scratch.mit.edu/ScratchInstaller##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Inform7':{
+        name:'Inform7',
+        category:'Programming',
+        description:'Interactive Fiction Programming CYOA',
+        url:'http://inform7.com/',
+        version:{
+            url:'http://inform7.com/download/',
+            regex:'Inform release ([A-Z0-9]+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://inform7.com/download/content/##VERSION##/I7_##VERSION##_Windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Windif':{
+        name:'Windif',
+        category:'Utility',
+        description:'Diff in Windows    ',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Love2d':{
+        name:'Love2d',
+        category:'Programming',
+        description:'Lua 2d engine',
+        url:'https://love2d.org/',
+        version:{
+            url:'https://love2d.org/',
+            regex:'([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'https://bitbucket.org/rude/love/downloads/love-##VERSION##-win-x86.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Love2d-64':{
+        name:'Love2d',
+        category:'Programming',
+        description:'Lua 2d engine',
+        url:'https://love2d.org/',
+        version:{
+            url:'https://love2d.org/',
+            regex:'([0-9]+(?:\.[0-9]+)+) for Windows',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'https://bitbucket.org/rude/love/downloads/love-##VERSION##-win-x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SDL':{
+        name:'Simple DirectMedia Layer',
+        category:'Programming',
+        description:'Low Level Peripheral Library',
+        url:'http://www.libsdl.org/index.php',
+        version:{
+            url:'http://www.libsdl.org/download-1.2.php',
+            regex:'SDL version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.libsdl.org/release/SDL-##VERSION##-win32.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SDL-64':{
+        name:'Simple DirectMedia Layer',
+        category:'Programming',
+        description:'Low Level Peripheral Library',
+        url:'http://www.libsdl.org/index.php',
+        version:{
+            url:'http://www.libsdl.org/download-1.2.php',
+            regex:'SDL version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.libsdl.org/release/SDL-##VERSION##-win32-x64.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'OracleInstantBasic':{
+        name:'Oracal Instant Client',
+        category:'Database',
+        description:'Run Oracle Apps without having Oracle Client',
+        url:'http://www.oracle.com/technetwork/database/features/instant-client/index-100365.html',
+        version:{
+            url:'http://www.oracle.com/technetwork/topics/winsoft-085727.html',
+            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'OracleInstantBasic-64':{
+        name:'',
+        category:'',
+        description:'',
+        url:'',
+        version:{
+            url:'',
+            regex:'',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    
     'EMPTYEND':{
         name:'',
         category:'',
