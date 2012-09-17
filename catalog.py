@@ -994,7 +994,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'http://download.winscp.net/download/files/201209112230068836a699a59f83af7546a9597cf90b/winscp##DOTLESSVERSION##setup.exe',
+            url:'http://download.winscp.net/download/files/201209172139457d6cc5704256b399748a581c926f20/winscp439setup.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
