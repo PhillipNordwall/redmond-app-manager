@@ -62,6 +62,30 @@ catalog={
             regexpos:0
             }
         },
+		'Scala':{
+        name:'Scala',
+        category:'Programming',
+        description:'Scala is a general purpose programming language.',
+        url:'http://www.scala-lang.org/',
+        version:{
+            url:'http://www.scala-lang.org/downloads/',
+            regex:'The current version of Scala is <strong>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.scala-lang.org/downloads/distrib/files/scala-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
 		'GLUT':{
         name:'GLUT OpenGL Utility Toolkit ',
         category:'Utility',
