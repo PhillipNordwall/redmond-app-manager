@@ -438,8 +438,7 @@ catalog={
             url:'http://levine.sscnet.ucla.edu/general/software/tc1000/jarnal-public.jar',
             regex:'',
             regexpos:0},
-        silentfl        'Maxima':{
-ags:'/verysilent',
+        silentflags:'/verysilent',
         installversion:{
             querytype:'',
             key:'HKLM',
