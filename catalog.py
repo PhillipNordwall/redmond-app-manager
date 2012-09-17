@@ -1188,7 +1188,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe',
+            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty-##VERSION##-installer.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',  
@@ -2845,7 +2845,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
+            url:'http://l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
@@ -3338,6 +3338,7 @@ catalog={
             regexpos:0
             }
         },
+    
     
     
     'EMPTYEND':{
