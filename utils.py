@@ -442,7 +442,7 @@ def expandVersion(d):
     """Expand version numbers in download url.
 
     If the 'download' section of d contains a 'url' section that has a
-    ##VERSION##, or a ##DOTLESSVERSION## ##UNDERSCOREVERSION##, lookup the latest webversion and
+    ##VERSION##, ##DASHVERSION##,##DOTLESSVERSION## ##UNDERSCOREVERSION##, lookup the latest webversion and
     replace the placeholder with the appropriate text.
 
     @param d The dictionary entry for a package, containing a valid 'version'
@@ -453,14 +453,16 @@ def expandVersion(d):
     @todo: XXX: exception handling
     """
     url = d['download']['url']
-    if '##VERSION##' in url or '##DOTLESSVERSION##' or '##UNDERSCOREVERSION##' in url:
+    if '##VERSION##' in url or '##DOTLESSVERSION##' or '##UNDERSCOREVERSION##'or '##DASHVERSION##' in url:
         ret = copy.deepcopy(d)
         version = getWebVersion(d)
         dotlessversion = re.sub('\.', '', version)
         underscoreversion=re.sub('\.','_', version)
+        dashversion=re.sub('\.','-', version)
         url = re.sub('##VERSION##', version, url)
         url = re.sub('##DOTLESSVERSION##', dotlessversion, url)
         url = re.sub('##UNDERSCOREVERSION##', underscoreversion, url)
+        url = re.sub('##DASHVERSION##', dashversion, url)
         ret['download']['url'] = url
         return ret
     else:
