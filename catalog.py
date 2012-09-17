@@ -68,6 +68,7 @@ broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 #Paint.Net == Zipped, may have problems installing
 #Jarnal == JAR file may have problems installing
 #Lazarus == code commented out due to problems with source forge
+#MingGW == need to add
 ############################################################################
 catalog={
     'EMPTY':{
@@ -94,30 +95,54 @@ catalog={
             regexpos:0
             }
         },
-    'TortoiseSVN':{
-        name:'TortoiseSVN',
-        category:'Version Controle',
-        description:'Subversion client implemented as a Microsoft Windows shell extension',
-        url:'http://tortoisesvn.net/downloads.html',
-        version:{
-            url:'http://tortoisesvn.net/downloads.html',
-            regex:'current version is ([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'directurl',
-            url:'http://superb-sea2.dl.sourceforge.net/project/tortoisesvn/1.7.9/Application/TortoiseSVN-1.7.9.23248-win32-svn-1.7.6.msi',
-            regex:'',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
+    # 'MinGW':{
+        # name:'Minimalist GNU for Windows',
+        # category:'Programming',
+        # description:'Minimalist development environment for native Microsoft Windows applications.',
+        # url:'http://www.mingw.org/',
+        # version:{
+            # url:'http://sourceforge.net/projects/mingw/files/',
+            # regex:'',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'pagesearch',
+            # url:'',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
+    # 'TortoiseSVN':{
+        # name:'TortoiseSVN',
+        # category:'Version Controle',
+        # description:'Subversion client implemented as a Microsoft Windows shell extension',
+        # url:'http://tortoisesvn.net/downloads.html',
+        # version:{
+            # url:'http://tortoisesvn.net/downloads.html',
+            # regex:'current version is ([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'directurl',
+            # url:'http://superb-sea2.dl.sourceforge.net/project/tortoisesvn/1.7.9/Application/TortoiseSVN-1.7.9.23248-win32-svn-1.7.6.msi',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
     'FLTK':{
         name:'Fast Light Tool Kit',
         category:'Programming',
