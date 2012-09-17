@@ -34,10 +34,14 @@ import _winreg
 import copy
 import sys
 import catalog
+import cookielib
 
 #We emulate Mozilla Firefox on Windows 7 64 bit as our UA
 
 userAgent=[('User-Agent',' Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0')]
+cj = cookielib.CookieJar()
+opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+opener.addheaders=userAgent
 
 def getPage(url):
     """Returns the contents of a url as a string.
@@ -48,8 +52,7 @@ def getPage(url):
     @return A string containing the page contents of url.
     """
     try:
-        opener=urllib2.build_opener()
-        opener.addheaders=userAgent
+        opener.addheaders=userAgent + [('Referer', url)]
         f=opener.open(url)
         page = f.read()
         f.close()
@@ -165,14 +168,12 @@ def getDownloadURL(d):
     try:
         expandedVersion=expandVersion(d)
         downurl=expandedVersion['download']['url']
-
         
         #Here is a switch to determine action based on download type. Default is direct download
         if d['download']['downloadtype']=='pagesearch':
             downurl = scrapePageDict(expandedVersion['download'])
 
-        opener=urllib2.build_opener()
-        opener.addheaders=userAgent
+        opener.addheaders=userAgent + [('Referer', downurl)]
         fredirectedurl = opener.open(downurl)
         
         redirectedurl = fredirectedurl.geturl()
@@ -207,9 +208,8 @@ def downloadLatest(d, location='downloads\\', overwrite=False):
         name = d['name']
         version = getWebVersion(d)
         downurl = getDownloadURL(d)
-        opener=urllib2.build_opener()
-        opener.addheaders=userAgent
         
+        opener.addheaders=userAgent + [('Referer', downurl)]
         furl = opener.open(downurl)
 
         parsed=urllib2.urlparse.urlparse(furl.geturl())
