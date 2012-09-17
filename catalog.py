@@ -62,6 +62,55 @@ catalog={
             regexpos:0
             }
         },
+    'FLTK':{
+        name:'Fast Light Tool Kit',
+        category:'Programming',
+        description:'provides modern GUI functionality without the bloat and supports 3D graphics via OpenGL',
+        url:'http://www.fltk.org/',
+        version:{
+            url:'http://www.fltk.org/',
+            regex:'VERSION=([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.easysw.com/pub/fltk/##VERSION##/fltk-##VERSION##-docs-html.tar.gz',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+ 'VTK':{
+        name:'Visualization Toolkit ',
+        category:'Programming',
+        description:'software system for 3D computer graphics, image processing and visualization',
+        url:'http://www.vtk.org/',
+        version:{
+            url:'http://www.vtk.org/VTK/resources/software.html',
+            regex:'Download the latest release \(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.vtk.org/VTK/resources/software.html#latest',
+            regex:'http://www.vtk.org/files/release/[0-9]+(?:\.[0-9]+)+/vtk-[0-9]+(?:\.[0-9]+)+-win32-x86.exe',
+               #   http://www.vtk.org/files/release/5.10/vtk-5.10.0-win32-x86.exe
+			regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
 	# fetch not working for Lazarus due to download URL.  --Camille	
     # 'Lazarus':{
         # name:'Lazarus',
@@ -73,7 +122,7 @@ catalog={
             # regex:'lazarus-([0-9]+(?:\.[0-9]+)+-fpc-[0-9]+(?:\.[0-9]+)+)',
             # regexpos:0},
         # download:{
-            # downloadtype:'pagesearch',
+            # downloadtype:'directurl',
             # url:'http://softlayer.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2032%20bits/Lazarus%201.0/lazarus-##VERSION##-win32.exe',
             # regex:'',
             # regexpos:0},
