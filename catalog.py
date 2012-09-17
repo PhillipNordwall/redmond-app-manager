@@ -95,6 +95,30 @@ catalog={
             regexpos:0
             }
         },
+    'Cygwin':{
+        name:'Cygwin',
+        category:'',
+        description:'collection of tools which provide a Linux look and feel environment for Windows',
+        url:'http://cygwin.com/',
+        version:{
+            url:'http://cygwin.com/',
+            regex:'[0-9]+(?:\.[0-9]+)+-[0-9]', 
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://cygwin.com/',
+            regex:'http://cygwin.com/setup.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     # 'MinGW':{
         # name:'Minimalist GNU for Windows',
         # category:'Programming',
