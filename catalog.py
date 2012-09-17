@@ -96,6 +96,30 @@ catalog={
             regexpos:0
             }
         },
+    'Bison':{
+        name:'Bison for Windows',
+        category:'Programming',
+        description:'General purpose parser generator. Converts a grammar description into a C program to parse the grammar.',
+        url:'http://gnuwin32.sourceforge.net/packages/bison.htm',
+        version:{
+            url:'http://gnuwin32.sourceforge.net/packages/bison.htm',
+            regex:'<p>([0-9]+(?:\.[0-9]+)+)</p>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-sea2.dl.sourceforge.net/project/gnuwin32/bison/##VERSION##/bison-##VERSION##-bin.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'LLVM':{
         name:'Low Level Virtual Machine',
         category:'Programming',
