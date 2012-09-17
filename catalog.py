@@ -62,30 +62,31 @@ catalog={
             regexpos:0
             }
         },
-    'Lazarus':{
-        name:'Lazarus',
-        category:'Editor',
-        description:'Lazarus IDE is a stable and feature rich visual programming environment for the FreePascal Compiler',
-        url:'http://www.lazarus.freepascal.org/',
-        version:{
-            url:'http://sourceforge.net/projects/lazarus/files/',
-            regex:'lazarus-([0-9]+(?:\.[0-9]+)+-fpc-[0-9]+(?:\.[0-9]+)+)',
-            regexpos:0},
-        download:{
-            downloadtype:'pagesearch',
-            url:'http://softlayer.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2032%20bits/Lazarus%201.0/lazarus-##VERSION##-win32.exe',
-            regex:'',
-            regexpos:0},
-        silentflags:'/verysilent',
-        installversion:{
-            querytype:'',
-            key:'HKLM',
-            subkey:'SOFTWARE\\',
-            value:'',
-            regex:'([0-9]+(?:\.[0-9]+)+)',
-            regexpos:0
-            }
-        },
+	# fetch not working for Lazarus due to download URL.  --Camille	
+    # 'Lazarus':{
+        # name:'Lazarus',
+        # category:'Editor',
+        # description:'Lazarus IDE is a stable and feature rich visual programming environment for the FreePascal Compiler',
+        # url:'http://www.lazarus.freepascal.org/',
+        # version:{
+            # url:'http://sourceforge.net/projects/lazarus/files/',
+            # regex:'lazarus-([0-9]+(?:\.[0-9]+)+-fpc-[0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'pagesearch',
+            # url:'http://softlayer.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2032%20bits/Lazarus%201.0/lazarus-##VERSION##-win32.exe',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
 		'GHC':{
         name:'Glasgow Haskell compiler',
         category:'Programming',
