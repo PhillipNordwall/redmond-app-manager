@@ -62,6 +62,54 @@ catalog={
             regexpos:0
             }
         },
+		'SciLab-64':{
+        name:'SciLab',
+        category:'Ulility',
+        description:'Free Open Source Software for Numerical Computation',
+        url:'http://www.scilab.org/products/scilab/download',
+        version:{
+            url:'http://www.scilab.org/products/scilab/download',
+            regex:'Latest stable release: Scilab ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.scilab.org/download/##VERSION##/scilab-##VERSION##_x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+		'Maxima':{
+        name:'Maxima',
+        category:'Utility',
+        description:'Computer algebra system',
+        url:'http://sourceforge.net/projects/maxima/files/',
+        version:{
+            url:'http://sourceforge.net/projects/maxima/files/',
+            regex:'title="/Maxima-Windows/([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca3.dl.sourceforge.net/project/maxima/Maxima-Windows/##VERSION##-Windows/maxima-##VERSION##-1.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'LibreOffice':{
         name:'LibreOffice',
         category:'Editors and Viewers',
