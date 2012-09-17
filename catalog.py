@@ -69,6 +69,7 @@ broken_silent_minimal_list = [ 'GSview 32bit', 'AdobeReader' ]
 #Jarnal == JAR file may have problems installing
 #Lazarus == code commented out due to problems with source forge
 #MingGW == need to add
+#Console == Need to do. http://sourceforge.net/projects/console/
 ############################################################################
 catalog={
     'EMPTY':{
@@ -83,6 +84,30 @@ catalog={
         download:{
             downloadtype:'pagesearch',
             url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'LLVM':{
+        name:'Low Level Virtual Machine',
+        category:'Programming',
+        description:'collection of modular and reusable compiler and toolchain technologies',
+        url:'http://llvm.org/',
+        version:{
+            url:'http://llvm.org/',
+            regex:'LLVM ([0-9]+(?:\.[0-9]+)+) is now <a href="releases',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://llvm.org/releases/##VERSION##/clang+llvm-##VERSION##-i386-mingw32-EXPERIMENTAL.tar.bz2',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
