@@ -96,6 +96,30 @@ catalog={
             regexpos:0
             }
         },
+    'Mozart':{
+        name:'Mozart',
+        category:'Programming',
+        description:'Mozart implements Oz, a concurrent object-oriented language with dataflow synchronization',
+        url:'http://www.mozart-oz.org/',
+        version:{
+            url:'http://www.mozart-oz.org/',
+            regex:'Last released Mozart is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.mozart-oz.org/download/view.cgi?action=windows&version=##VERSION##',
+            regex:'a href=\'(.*[0-9]+(?:\.[0-9]+)+.*.exe)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     'Bison':{
         name:'Bison for Windows',
         category:'Programming',
