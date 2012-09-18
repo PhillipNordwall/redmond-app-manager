@@ -517,19 +517,22 @@ def main(argv):
         print "Usage:python utils.py [version|localversion|fetch|install] {packagename|all}"
         return -1
 
-    
+    package_name=argv[2]
+    everything=(package_name=="all")
+    if not everything:
+        package = catalog.catalog[package_name]
+
     if argv[1]=="version":
-        package = catalog.catalog[argv[2]]
         print getWebVersion(package)
     elif argv[1]=="localversion":
         print getInstalledVersion(package)
     elif argv[1]=="install":
-        if argv[2]=="all":
-            installColl(catalog.catalog, catalog.catalog.keys())
+        if everything:
+            installColl(catalog.catalog, sorted(catalog.catalog.keys()))
         else:
-            downloadAndInstallLatest(catalog.catalog[argv[2]])
+            downloadAndInstallLatest(package)
     elif argv[1]=="fetch":
-        if argv[2]=="all":
+        if everything:
             for i in catalog.catalog:
                 try:
                     package = catalog.catalog[i]
@@ -538,7 +541,6 @@ def main(argv):
                 except Exception:
                     print "Could not fetch:"+i
         else:
-            package = catalog.catalog[argv[2]]
             downloadLatest(package)        
             
 
