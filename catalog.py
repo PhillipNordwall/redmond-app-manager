@@ -68,6 +68,9 @@ broken_list = ['TortoiseSVN-64']
               #due to dashes in dashed version of number
 #Paint.Net == Zipped, may have problems installing
 #Jarnal == JAR file may have problems installing
+#Lazarus == code commented out due to problems with source forge
+#MingGW == need to add
+#Console == Need to do. http://sourceforge.net/projects/console/
 ############################################################################
 catalog={
     'EMPTY':{
@@ -82,6 +85,415 @@ catalog={
         download:{
             downloadtype:'pagesearch',
             url:'',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Mozart':{
+        name:'Mozart',
+        category:'Programming',
+        description:'Mozart implements Oz, a concurrent object-oriented language with dataflow synchronization',
+        url:'http://www.mozart-oz.org/',
+        version:{
+            url:'http://www.mozart-oz.org/',
+            regex:'Last released Mozart is ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.mozart-oz.org/download/view.cgi?action=windows&version=##VERSION##',
+            regex:'a href=\'(.*[0-9]+(?:\.[0-9]+)+.*.exe)',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Bison':{
+        name:'Bison for Windows',
+        category:'Programming',
+        description:'General purpose parser generator. Converts a grammar description into a C program to parse the grammar.',
+        url:'http://gnuwin32.sourceforge.net/packages/bison.htm',
+        version:{
+            url:'http://gnuwin32.sourceforge.net/packages/bison.htm',
+            regex:'<p>([0-9]+(?:\.[0-9]+)+)</p>',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-sea2.dl.sourceforge.net/project/gnuwin32/bison/##VERSION##/bison-##VERSION##-bin.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'LLVM':{
+        name:'Low Level Virtual Machine',
+        category:'Programming',
+        description:'collection of modular and reusable compiler and toolchain technologies',
+        url:'http://llvm.org/',
+        version:{
+            url:'http://llvm.org/',
+            regex:'LLVM ([0-9]+(?:\.[0-9]+)+) is now <a href="releases',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://llvm.org/releases/##VERSION##/clang+llvm-##VERSION##-i386-mingw32-EXPERIMENTAL.tar.bz2',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'ImgBurn':{
+        name:'ImgBurn',
+        category:'Multimedia',
+        description:'allows the recording of many types of CD/DVD images to recordable media',
+        url:'http://www.imgburn.com/index.php?act=download',
+        version:{
+            url:'http://www.imgburn.com/index.php?act=download',
+            regex:'Current version: ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download.imgburn.com/SetupImgBurn_##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'GPG4Win':{
+        name:'GPG4Win',
+        category:'Encryption',
+        description:'installation package with software tools and manuals for email and file encryption',
+        url:'http://www.gpg4win.org/index.html',
+        version:{
+            url:'http://www.gpg4win.org/index.html',
+            regex:'Download<br />Gpg4win ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://files.gpg4win.org/gpg4win-##VERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Cygwin':{
+        name:'Cygwin',
+        category:'',
+        description:'collection of tools which provide a Linux look and feel environment for Windows',
+        url:'http://cygwin.com/',
+        version:{
+            url:'http://cygwin.com/',
+            regex:'[0-9]+(?:\.[0-9]+)+-[0-9]', 
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://cygwin.com/',
+            regex:'http://cygwin.com/setup.exe',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    # 'MinGW':{
+        # name:'Minimalist GNU for Windows',
+        # category:'Programming',
+        # description:'Minimalist development environment for native Microsoft Windows applications.',
+        # url:'http://www.mingw.org/',
+        # version:{
+            # url:'http://sourceforge.net/projects/mingw/files/',
+            # regex:'',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'pagesearch',
+            # url:'',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
+    # 'TortoiseSVN':{
+        # name:'TortoiseSVN',
+        # category:'Version Controle',
+        # description:'Subversion client implemented as a Microsoft Windows shell extension',
+        # url:'http://tortoisesvn.net/downloads.html',
+        # version:{
+            # url:'http://tortoisesvn.net/downloads.html',
+            # regex:'current version is ([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'directurl',
+            # url:'http://superb-sea2.dl.sourceforge.net/project/tortoisesvn/1.7.9/Application/TortoiseSVN-1.7.9.23248-win32-svn-1.7.6.msi',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
+    'FLTK':{
+        name:'Fast Light Tool Kit',
+        category:'Programming',
+        description:'provides modern GUI functionality without the bloat and supports 3D graphics via OpenGL',
+        url:'http://www.fltk.org/',
+        version:{
+            url:'http://www.fltk.org/',
+            regex:'VERSION=([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://ftp.easysw.com/pub/fltk/##VERSION##/fltk-##VERSION##-docs-html.tar.gz',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+ 'VTK':{
+        name:'Visualization Toolkit ',
+        category:'Programming',
+        description:'software system for 3D computer graphics, image processing and visualization',
+        url:'http://www.vtk.org/',
+        version:{
+            url:'http://www.vtk.org/VTK/resources/software.html',
+            regex:'Download the latest release \(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://www.vtk.org/VTK/resources/software.html#latest',
+            regex:'http://www.vtk.org/files/release/[0-9]+(?:\.[0-9]+)+/vtk-[0-9]+(?:\.[0-9]+)+-win32-x86.exe',
+			regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+	# fetch not working for Lazarus due to download URL.  --Camille	
+    # 'Lazarus':{
+        # name:'Lazarus',
+        # category:'Editor',
+        # description:'Lazarus IDE is a stable and feature rich visual programming environment for the FreePascal Compiler',
+        # url:'http://www.lazarus.freepascal.org/',
+        # version:{
+            # url:'http://sourceforge.net/projects/lazarus/files/',
+            # regex:'lazarus-([0-9]+(?:\.[0-9]+)+-fpc-[0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0},
+        # download:{
+            # downloadtype:'directurl',
+            # url:'http://softlayer.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2032%20bits/Lazarus%201.0/lazarus-##VERSION##-win32.exe',
+            # regex:'',
+            # regexpos:0},
+        # silentflags:'/verysilent',
+        # installversion:{
+            # querytype:'',
+            # key:'HKLM',
+            # subkey:'SOFTWARE\\',
+            # value:'',
+            # regex:'([0-9]+(?:\.[0-9]+)+)',
+            # regexpos:0
+            # }
+        # },
+        'GHC':{
+        name:'Glasgow Haskell compiler',
+        category:'Programming',
+        description:'Cross-platform environment for the writing and testing of Haskell code',
+        url:'http://www.haskell.org/ghc/download',
+        version:{
+            url:'http://www.haskell.org/ghc/download',
+            regex:'Current Stable Release \(([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.haskell.org/ghc/dist/##VERSION##/ghc-##VERSION##-i386-windows.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'Unicon':{
+        name:'Unicon',
+        category:'Programming',
+        description:'Unified exteded dialect of Icon',
+        url:'http://unicon.sourceforge.net/index.html',
+        version:{
+            url:'http://sourceforge.net/projects/unicon/files/',
+            regex:'setup-unicon_([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://iweb.dl.sourceforge.net/project/unicon/setup-unicon_12.1.0_threads%2832-bit%29.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'Scala':{
+        name:'Scala',
+        category:'Programming',
+        description:'Scala is a general purpose programming language.',
+        url:'http://www.scala-lang.org/',
+        version:{
+            url:'http://www.scala-lang.org/downloads/',
+            regex:'The current version of Scala is <strong>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.scala-lang.org/downloads/distrib/files/scala-##VERSION##.msi',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'GLUT':{
+        name:'GLUT OpenGL Utility Toolkit ',
+        category:'Utility',
+        description:'A window system independent toolkit for writing OpenGL programs',
+        url:'',
+        version:{
+            url:'http://www.opengl.org/resources/libraries/glut/',
+            regex:'The current source code distribution is GLUT ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.opengl.org/resources/libraries/glut/glut##DOTLESSVERSION##data.zip',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'SciLab-64':{
+        name:'SciLab',
+        category:'Utility',
+        description:'Free Open Source Software for Numerical Computation',
+        url:'http://www.scilab.org/products/scilab/download',
+        version:{
+            url:'http://www.scilab.org/products/scilab/download',
+            regex:'Latest stable release: Scilab ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://www.scilab.org/download/##VERSION##/scilab-##VERSION##_x64.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+        'Maxima':{
+        name:'Maxima',
+        category:'Utility',
+        description:'Computer algebra system',
+        url:'http://sourceforge.net/projects/maxima/files/',
+        version:{
+            url:'http://sourceforge.net/projects/maxima/files/',
+            regex:'title="/Maxima-Windows/([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://superb-dca3.dl.sourceforge.net/project/maxima/Maxima-Windows/##VERSION##-Windows/maxima-##VERSION##-1.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
@@ -115,7 +527,7 @@ catalog={
             regexpos:-1
             }
         },
-    'Tightvncviewer':{
+    'Tightvncviewer-64':{
         name:'TightVNCViewer',
         category:'Internet Tools',
         description:'TightVNC is a free remote control software package.',
@@ -1043,7 +1455,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'http://download.winscp.net/download/files/201209112230068836a699a59f83af7546a9597cf90b/winscp##DOTLESSVERSION##setup.exe',
+            url:'http://download.winscp.net/download/files/201209172139457d6cc5704256b399748a581c926f20/winscp439setup.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
