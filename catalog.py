@@ -1431,7 +1431,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe',
+            url:'http://the.earth.li/~sgtatham/putty/latest/x86/putty-##VERSION##-installer.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',  
@@ -3088,7 +3088,7 @@ catalog={
             regexpos:0},
         download:{
             downloadtype:'directurl',
-            url:'l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
+            url:'http://l3cdn.riotgames.com/Installer/NA_Installer/LeagueofLegends.exe',
             regex:'',
             regexpos:0},
         silentflags:'/verysilent',
@@ -3581,7 +3581,126 @@ catalog={
             regexpos:0
             }
         },
-    
+    'Vuze':{
+        name:'Vuze',
+        category:'BitTorrent',
+        description:'Heavyweight Torrent Client',
+        url:'http://www.vuze.com/',
+        version:{
+            url:'http://www.vuze.com/',
+            regex:'Version ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://cf1.vuze.com/files/Vuze_Installer.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'WxWidgits':{
+        name:'wxWidgits',
+        category:'Programming',
+        description:'GUI Library',
+        url:'http://www.wxwidgets.org/',
+        version:{
+            url:'http://www.wxwidgets.org/downloads/',
+            regex:'<b>Current Stable Release: <a href="#latest_stable">([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://biolpc22.york.ac.uk/pub/##VERSION##/wxMSW-##VERSION##-Setup.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'IronPython':{
+        name:'Iron Python',
+        category:'Programming',
+        description:'Python JiT For CLR',
+        url:'http://ironpython.codeplex.com/',
+        version:{
+            url:'http://ironpython.codeplex.com/releases/view/81726',
+            regex:'IronPython ([0-9]+(?:\.[0-9]+)+) Installer',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'http://download-codeplex.sec.s-thisdoesntworkl.com/Download/Release?ProjectName=ironpython&DownloadId=423690&FileTime=129858605577070000&Build=19383',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'Fpc':{
+        name:'Free Pascal',
+        category:'Programming',
+        description:'Implementation of Pascal',
+        url:'http://www.freepascal.org',
+        version:{
+            url:'http://www.freepascal.org/download.var',
+            regex:'The latest release is <b>([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'pagesearch',
+            url:'http://softlayer.dl.sourceforge.net/project/freepascal/Win32/##VERSION##/fpc-##VERSION##.i386-win32.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
+    'SmartEiffel':{
+        name:'Smart Eiffel',
+        category:'Programming',
+        description:'A GNU Eiffel compiler',
+        url:'https://gforge.inria.fr/projects/smarteiffel/',
+        version:{
+            url:'https://gforge.inria.fr/frs/?group_id=184',
+            regex:'SmartEiffel SmartEiffel ([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0},
+        download:{
+            downloadtype:'directurl',
+            url:'https://gforge.inria.fr/frs/download.php/2464/SmartEiffel-##DASHVERSION##.exe',
+            regex:'',
+            regexpos:0},
+        silentflags:'/verysilent',
+        installversion:{
+            querytype:'',
+            key:'HKLM',
+            subkey:'SOFTWARE\\',
+            value:'',
+            regex:'([0-9]+(?:\.[0-9]+)+)',
+            regexpos:0
+            }
+        },
     
     'EMPTYEND':{
         name:'',
